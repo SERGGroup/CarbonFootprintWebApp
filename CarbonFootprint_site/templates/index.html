@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>Carbon Footprint Calculator</title>
+    <meta property="og:title" content="Carbon Footprint Calculator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+
+      html { line-height: 1.15; }
+      body { margin: 0; }
+      *    {
+
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;}
+
+      p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {
+
+        margin: 0;  padding: 0;
+
+      }
+      button { background-color: transparent;}
+
+      button,input,optgroup,select,textarea {
+
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,select { text-transform: none;}
+      button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}
+      button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}
+      button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}
+      a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+
+        font-family: Inter;
+        font-size: 16px;
+
+      }  body{
+
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+
+    <link
+
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bad+Script:wght@400&amp;display=swap"
+      data-tag="font"
+
+    />
+    <link
+
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+
+    />
+
+    <!--This is the head section-->
+    <!-- <style> ... </style> -->
+    <style data-section-id="dropdown">
+
+      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {display: flex;}
+      [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {transform: rotate(90deg);}
+
+    </style>
+    <link rel="stylesheet" href="/static/style.css"/>
+
+  </head>
+  <body>
+    <div>
+      <link href="/static/home.css" rel="stylesheet" />
+
+      <div class="home-container">
+        <header data-role="Header" class="home-header">
+		<a href="/">
+          <img
+            alt="logo"
+            src="/static/images/logo_app.png"
+            class="home-image"
+          />
+		</a>
+          <div class="home-nav">
+            <nav
+              class="navigation-links1-nav navigation-links1-root-class-name17"
+            >
+			  <a href="/results"
+              <span class="navigation-links1-text"><span>Results</span></span>
+			  </a>
+              <span class="navigation-links1-text1">
+              </span>
+            </nav>
+            <img
+              alt="image"
+              src="/static/images/logo_unifi.png"
+              class="home-image1"
+            />
+          </div>
+          <div data-role="BurgerMenu" class="home-burger-menu">
+            <svg viewBox="0 0 1024 1024" class="home-icon">
+              <path
+                d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+              ></path>
+            </svg>
+          </div>
+          <div data-role="MobileMenu" class="home-mobile-menu">
+            <div class="home-nav1">
+              <div class="home-container01">
+                <img
+                  alt="image"
+                  src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
+                  class="home-image2"
+                />
+                <div data-role="CloseMobileMenu" class="home-close-mobile-menu">
+                  <svg viewBox="0 0 1024 1024" class="home-icon02">
+                    <path
+                      d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <nav
+                class="navigation-links1-nav navigation-links1-root-class-name18"
+              >
+                <span class="navigation-links1-text"><span>Results</span></span>
+                <span class="navigation-links1-text1">
+                </span>
+              </nav>
+            </div>
+            <div>
+              <svg viewBox="0 0 950.8571428571428 1024" class="home-icon04">
+                <path
+                  d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429 0.571 8 0.571 16 0.571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"
+                ></path></svg
+              ><svg viewBox="0 0 877.7142857142857 1024" class="home-icon06">
+                <path
+                  d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
+                ></path></svg
+              ><svg viewBox="0 0 602.2582857142856 1024" class="home-icon08">
+                <path
+                  d="M548 6.857v150.857h-89.714c-70.286 0-83.429 33.714-83.429 82.286v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571c0-144.571 88.571-223.429 217.714-223.429 61.714 0 114.857 4.571 130.286 6.857z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </header>
+        <div class="home-banner">
+          <h1 class="home-text">Our Mission</h1>
+          <span class="home-text001">
+            We have done a Carbon footprint calculator to allow people to
+            calculate their own carbon footprint related to their lifestyle,
+            this allow to everyone to know our carbon footprint and to improve
+            our lifestyle to become more sustainable
+          </span>
+          <span class="home-text002">
+            Insert below all your data and let's calculate your carbon footprint
+          </span>
+        </div>
+        <form class="home-form" method="POST" action="/results">
+
+          <div class="home-container02">
+            <span class="home-text003">
+              Enter below what you eat in a typical week
+            </span>
+          </div>
+          <div class="home-container03">
+            <div class="home-container04">
+              <h1 class="home-text004">Protein</h1>
+              <div class="home-container05">
+                <span class="home-text005">
+                  <span>Beef</span>
+                  <br />
+                  <span class="home-text008">(beef herd)</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput input"
+				  name="beef_herd"
+                />
+              </div>
+              <div class="home-container06">
+                <span class="home-text010">
+                  <span>
+                    <span>Lumb</span>
+                    <span></span>
+                  </span>
+                  <span class="home-text014">&amp;</span>
+                  <span>Mutton</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput01 input"
+				  name="lumb_mutton"
+                />
+              </div>
+              <div class="home-container07">
+                <span class="home-text017">
+                  <span>Cheese</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput02 input"
+				  name="cheese"
+                />
+              </div>
+              <div class="home-container08">
+                <span class="home-text020">
+                  <span>Beef</span>
+                  <br />
+                  <span class="home-text023">(dairy herd)</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput03 input"
+				  name="beef_dairy"
+                />
+              </div>
+              <div class="home-container09">
+                <span class="home-text025">
+                  <span>Poultry meat</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput04 input"
+				  name="poultry_meat"
+                />
+              </div>
+              <div class="home-container10">
+                <span class="home-text028">
+                  <span>Pig meat</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[cup/day]"
+                  class="home-textinput05 input"
+				  name="pig_meat"
+                />
+              </div>
+              <div class="home-container11">
+                <span class="home-text031">
+                  <span>Prawns</span>
+                  <br />
+                  <span class="home-text034">(farmed)</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput06 input"
+				  name="prawns_farmed"
+                />
+              </div>
+              <div class="home-container12">
+                <span class="home-text036">Fish(farmed)</span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput07 input"
+				  name="fish_farmed"
+                />
+              </div>
+              <div class="home-container13">
+                <span class="home-text037">Fish(wild catch)</span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput08 input"
+				  name="fish_wildcatch"
+                />
+              </div>
+              <div class="home-container14">
+                <span class="home-text038">
+                  <span>Eggs</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[num/week]"
+                  class="home-textinput09 input"
+				  name="eggs"
+                />
+              </div>
+            </div>
+            <div class="home-container15">
+              <h1 class="home-text041">Carbohydrates</h1>
+              <div class="home-container16">
+                <span class="home-text042">Pasta</span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput10 input"
+				  name="pasta"
+                />
+              </div>
+              <div class="home-container17">
+                <span class="home-text043">Bread</span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput11 input"
+				  name="bread"
+                />
+              </div>
+              <div class="home-container18">
+                <span class="home-text044">
+                  <span>
+                    <span>Wheat</span>
+                    <span></span>
+                  </span>
+                  <span class="home-text048">
+                    <span>&amp;</span>
+                    <span></span>
+                  </span>
+                  <span>Rye</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput12 input"
+				  name="wheat_rye"
+                />
+              </div>
+              <div class="home-container19">
+                <span class="home-text053">
+                  <span>Maize</span>
+                  <br />
+                  <span class="home-text056">(corn)</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput13 input"
+				  name="maize"
+                />
+              </div>
+              <div class="home-container20">
+                <span class="home-text058">
+                  <span>Rice</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput14 input"
+				  name="rice"
+                />
+              </div>
+              <div class="home-container21">
+                <span class="home-text061">
+                  <span>Cane sugar</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[g/week]"
+                  class="home-textinput15 input"
+				  name="cane_sugar"
+                />
+              </div>
+            </div>
+            <div class="home-container22">
+              <div class="home-container23">
+                <h1 class="home-text064">Vegetables &amp; others</h1>
+                <div class="home-container24">
+                  <span class="home-text065">
+                    <span>Apples</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[num/week]"
+                    class="home-textinput16 input"
+					name="apples"
+                  />
+                </div>
+                <div class="home-container25">
+                  <span class="home-text068">
+                    <span>Chocolate</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[g/week]"
+                    class="home-textinput17 input"
+					name="chocolate"
+                  />
+                </div>
+                <div class="home-container26">
+                  <span class="home-text071">
+                    <span>Coffee</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[cup/day]"
+                    class="home-textinput18 input"
+					name="coffee"
+                  />
+                </div>
+                <div class="home-container27">
+                  <span class="home-text074">
+                    <span>Tomatoes</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[g/week]"
+                    class="home-textinput19 input"
+					name="tomatoes"
+                  />
+                </div>
+                <div class="home-container28">
+                  <span class="home-text077">
+                    <span>Peas</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[g/week]"
+                    class="home-textinput20 input"
+					name="peas"
+                  />
+                </div>
+                <div class="home-container29">
+                  <span class="home-text080">
+                    <span>Soy milk</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[g/week]"
+                    class="home-textinput21 input"
+					name="soy_milk"
+                  />
+                </div>
+                <div class="home-container30">
+                  <span class="home-text083">
+                    <span>Olive oil</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[g/week]"
+                    class="home-textinput22 input"
+					name="olive_oil"
+                  />
+                </div>
+                <div class="home-container31">
+                  <span class="home-text086">
+                    <span>Milk</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[litre/week]"
+                    class="home-textinput23 input"
+					name="milk"
+                  />
+                </div>
+                <div class="home-container32">
+                  <span class="home-text089">
+                    <span>Groundnuts</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[g/week]"
+                    class="home-textinput24 input"
+					name="groundnuts"
+                  />
+                </div>
+                <div class="home-container33">
+                  <span class="home-text092">
+                    <span>Bananas</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[num/week]"
+                    class="home-textinput25 input"
+					name="bananas"
+                  />
+                </div>
+                <div class="home-container34">
+                  <span class="home-text095">
+                    <span>Root</span>
+                    <br />
+                    <span>vegetables</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[g/week]"
+                    class="home-textinput26 input"
+					name="root_vegetables"
+                  />
+                </div>
+                <div class="home-container35">
+                  <span class="home-text100">
+                    <span>Citrus fruit</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[num/week]"
+                    class="home-textinput27 input"
+					name="citrus_fruit"
+                  />
+                </div>
+                <div class="home-container36">
+                  <span class="home-text103">
+                    <span>Nuts</span>
+                    <br />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="[g/week]"
+                    class="home-textinput28 input"
+					name="nuts"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="home-container37">
+            <span class="home-text106">
+              Enter below how many kilometers you travel in a typical week/year
+            </span>
+          </div>
+          <div class="home-container38">
+            <div class="home-container39">
+              <h1 class="home-text107">Public transport</h1>
+              <div class="home-container40">
+                <span class="home-text108">
+                  <span>Bus</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[km/week]"
+                  class="home-textinput29 input"
+				  name="bus"
+                />
+              </div>
+              <div class="home-container41">
+                <span class="home-text111">
+                  <span>National rail</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[km/week]"
+                  class="home-textinput30 input"
+				  name="national_rail"
+                />
+              </div>
+              <div class="home-container42">
+                <span class="home-text114">
+                  <span>Ferry</span>
+                  <br />
+                  <span class="home-text117">(foot passanger)</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[km/week]"
+                  class="home-textinput31 input"
+				  name="ferry"
+                />
+              </div>
+              <div class="home-container43">
+                <span class="home-text119">
+                  <span>
+                    <span>Eurostar</span>
+                    <span></span>
+                  </span>
+                  <span class="home-text123">(international rail)</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[km/week]"
+                  class="home-textinput32 input"
+				  name="eurostar"
+                />
+              </div>
+            </div>
+            <div class="home-container44">
+              <h1 class="home-text125">
+                <span>MIT</span>
+                <br />
+                <span class="home-text128">motorized individual traffic</span>
+                <br />
+              </h1>
+              <div class="home-container45">
+                <span class="home-text130">
+                  <span>Medium car Petrol</span>
+                  <br />
+                </span>
+                <select required="" class="home-select" name="passangers_petrol">
+                  <option value="1" selected="">1 passenger</option>
+                  <option value="2">2 passengers</option>
+                  <option value="3">3 passengers</option>
+                  <option value="4">4 passengers</option>
+                  <option value="5">5 passengers</option>
+                </select>
+                <input
+                  type="text"
+                  placeholder="[km/week]"
+                  class="home-textinput33 input"
+				  name="mediumcar_petrol"
+                />
+              </div>
+              <div class="home-container46">
+                <span class="home-text133">
+                  <span>Medium car Diesel</span>
+                  <br />
+                </span>
+                <select required="" class="home-select1" name="passangers_diesel">
+                  <option value="1" selected="">1 passenger</option>
+                  <option value="Option 1">Option 1</option>
+                  <option value="2">2 passengers</option>
+                  <option value="Option 2">Option 2</option>
+                  <option value="3">3 passengers</option>
+                  <option value="4">4 passengers</option>
+                  <option value="Option 3">Option 3</option>
+                  <option value="5">5 passengers</option>
+                </select>
+                <input
+                  type="text"
+                  placeholder="[km/week]"
+                  class="home-textinput34 input"
+				  name="mediumcar_diesel"
+                />
+              </div>
+              <div class="home-container47">
+                <span class="home-text136">
+                  <span>Motorcycle</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[km/week]"
+                  class="home-textinput35 input"
+				  name="motorcycle"
+                />
+              </div>
+              <div class="home-container48">
+                <span class="home-text139">
+                  <span>Medium electric vehicle</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[km/week]"
+                  class="home-textinput36 input"
+				  name="electric_vehicle"
+                />
+              </div>
+            </div>
+            <div class="home-container49">
+              <h1 class="home-text142">AIR</h1>
+              <div class="home-container50">
+                <span class="home-text143">
+                  <span>Domestic flight</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[km/year]"
+                  class="home-textinput37 input"
+				  name="domestic_flight"
+                />
+              </div>
+              <div class="home-container51">
+                <span class="home-text146">
+                  <span>Short</span>
+                  <br />
+                  <span>haul-flight</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[km/year]"
+                  class="home-textinput38 input"
+				  name="short_flight"
+                />
+              </div>
+              <div class="home-container52">
+                <span class="home-text151">
+                  <span>Long</span>
+                  <br />
+                  <span>haul-flight</span>
+                  <br />
+                </span>
+                <input
+                  type="text"
+                  placeholder="[km/year]"
+                  class="home-textinput39 input"
+				  name="long_flight"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="home-container53">
+            <span class="home-text156">
+              Enter below some information about your home
+            </span>
+          </div>
+          <div class="home-container54">
+            <div class="home-container55">
+              <span class="home-text157">
+                <span>Number of family members</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                required=""
+                placeholder="[number]"
+                class="home-textinput40 input"
+				name="number_family"
+              />
+            </div>
+            <div class="home-container56">
+              <span class="home-text160">
+                <span>Refrigerator</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number]"
+                class="home-textinput41 input"
+				name="refrigerator"
+              />
+            </div>
+            <div class="home-container57">
+              <span class="home-text163">
+                <span>Food cooking</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[meals/day]"
+                class="home-textinput42 input"
+				name="food_cooking"
+              />
+            </div>
+            <div class="home-container58">
+              <span class="home-text166">
+                <span>Oven</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[meals/day]"
+                class="home-textinput43 input"
+				name="oven"
+              />
+            </div>
+            <div class="home-container59">
+              <span class="home-text169">
+                <span>Washing machine</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number/day]"
+                class="home-textinput44 input"
+				name="washing_machine"
+              />
+            </div>
+            <div class="home-container60">
+              <span class="home-text172">
+                <span>Shower</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number/day]"
+                class="home-textinput45 input"
+				name="personal_cleaning"
+              />
+            </div>
+            <div class="home-container61">
+              <span class="home-text175">
+                <span>Laptop</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number]"
+                class="home-textinput46 input"
+				name="laptop"
+              />
+            </div>
+            <div class="home-container62">
+              <span class="home-text178">
+                <span>Smartphone</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number]"
+                class="home-textinput47 input"
+				name="smartphone"
+              />
+            </div>
+            <div class="home-container63">
+              <span class="home-text181">Heating</span>
+              <span class="home-text182">Select your home</span>
+              <select required="" class="home-select2" name="heating">
+                <option value="2.995" selected="">North insulated</option>
+                <option value="6.795">North non insulated</option>
+                <option value="2.393">Center insulated</option>
+                <option value="5.37">Center non insulated</option>
+                <option value="1.556">South insulated</option>
+                <option value="2.63">South non insulated</option>
+              </select>
+            </div>
+          </div>
+          <div class="home-container64">
+            <span class="home-text183">
+              Enter below how many clothes you buy in a year
+            </span>
+          </div>
+          <div class="home-container65">
+            <div class="home-container66">
+              <span class="home-text184">
+                <span>Cotton</span>
+                <br />
+                <span>shirt</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number/year]"
+                class="home-textinput48 input"
+				name="cotton_shirt"
+              />
+            </div>
+            <div class="home-container67">
+              <span class="home-text189">
+                <span>Cotton sweat jacket</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number/year]"
+                class="home-textinput49 input"
+				name="cotton_sweatjacket"
+              />
+            </div>
+            <div class="home-container68">
+              <span class="home-text192">
+                <span>Acrylic jacket</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number/year]"
+                class="home-textinput50 input"
+				name="acrylic_jacket"
+              />
+            </div>
+            <div class="home-container69">
+              <span class="home-text195">
+                <span>Woolen sweater</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number/year]"
+                class="home-textinput51 input"
+				name="woolen_sweater"
+              />
+            </div>
+            <div class="home-container70">
+              <span class="home-text198">
+                <span>Polyester shirt</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number/year]"
+                class="home-textinput52 input"
+				name="polyester_shirt"
+              />
+            </div>
+            <div class="home-container71">
+              <span class="home-text201">
+                <span>Jeans</span>
+                <br />
+              </span>
+              <input
+                type="text"
+                placeholder="[number/year]"
+                class="home-textinput53 input"
+				name="jeans"
+              />
+            </div>
+          </div>
+          <button class="home-button button">Calculate</button>
+
+        </form>
+
+        <footer class="home-footer">
+
+          <img
+            alt="logo"
+            src="/static/images/logo_app.png"
+            class="home-image3"
+          />
+          <span class="home-text204">
+            © 2023 CarbonApp, All Rights Reserved.
+          </span>
+          <div class="home-icon-group1">
+            <svg viewBox="0 0 950.8571428571428 1024" class="home-icon10">
+              <path
+                d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429 0.571 8 0.571 16 0.571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"
+              ></path></svg
+            ><svg viewBox="0 0 877.7142857142857 1024" class="home-icon12">
+              <path
+                d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
+              ></path></svg
+            ><svg viewBox="0 0 602.2582857142856 1024" class="home-icon14">
+              <path
+                d="M548 6.857v150.857h-89.714c-70.286 0-83.429 33.714-83.429 82.286v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571c0-144.571 88.571-223.429 217.714-223.429 61.714 0 114.857 4.571 130.286 6.857z"
+              ></path>
+            </svg>
+          </div>
+
+        </footer>
+
+      </div>
+
+    </div>
+
+    <script
+      data-section-id="header"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+
+  </body>
+
+</html>
