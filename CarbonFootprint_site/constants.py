@@ -1,7 +1,6 @@
 import os
 
 MAIN_DIR = os.path.dirname(__file__)
-TEMPLATE_DIR = os.path.join(MAIN_DIR, "templates")
 IMAGES_DIR = os.path.join(MAIN_DIR, "static", "images")
 
 

@@ -1,5 +1,5 @@
 from function import calcola_tot, crea_grafici, controlla_ingressi,dividi_df, calcola_output, write_results
-from constants import MAIN_DIR, TEMPLATE_DIR, IMAGES_DIR, get_coefficients
+from constants import MAIN_DIR,  IMAGES_DIR, get_coefficients
 from flask import Flask, render_template, request, send_file
 import pandas as pd
 import os
@@ -54,27 +54,8 @@ def result():
         # questa funzione crea il file excel/crea il file partendo dal template già caricato in cartella
         write_results(prodotto)
 
-        try:
-
-            # Function that creates graphs
-            crea_grafici(lista_df)
-
-        except:
-
-            graphs = [
-
-                'grafico_abbigliamento.png', 'grafico_trasporti.png',
-                'grafico_dieta.png', 'grafico_casa.png',
-                'grafico_totale.png'
-
-            ]
-
-            for graph in graphs:
-
-                # If an error occurs during graph creation old files will be eliminated
-                if os.path.isfile(os.path.join(IMAGES_DIR, graph)):
-
-                    os.remove(os.path.join(IMAGES_DIR, graph))
+        # questa funzione genera i grafici da mostrare con i risultati
+        crea_grafici(lista_df)
 
         # salvo su un file csv i dati output
         output_df = pd.DataFrame([output], columns=['dieta', 'trasporti', 'casa', 'abbigliamento', 'totale'])
