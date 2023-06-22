@@ -244,7 +244,6 @@ def calcola_tot(lista_df):
      
      return [tot_dieta,tot_trasporti,tot_casa,tot_abbigliamento,tot]
 
-
 def write_results(prodotti):
 
     count = 1
