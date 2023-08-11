@@ -1,5 +1,5 @@
-from function import calcola_tot, crea_grafici, controlla_ingressi,dividi_df, calcola_output, write_results
-from constants import MAIN_DIR,  IMAGES_DIR, get_coefficients
+from .function import calcola_tot, crea_grafici, controlla_ingressi,dividi_df, calcola_output, write_results
+from .constants import MAIN_DIR,  IMAGES_DIR, get_coefficients
 from flask import Flask, render_template, request, send_file
 import pandas as pd
 import os

@@ -1,4 +1,4 @@
-from constants import MAIN_DIR,  IMAGES_DIR
+from .constants import MAIN_DIR,  IMAGES_DIR
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -189,8 +189,6 @@ def dividi_df(df_totale):
             casa=True
         elif i=='cotton_shirt':
             abbigliamento=True
-        
-        
         
         if (not trasporti and not casa and not abbigliamento):
             diz_dieta[i]=[df_totale.at[0,i]]
