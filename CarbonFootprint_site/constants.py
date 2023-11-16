@@ -3,7 +3,6 @@ import os
 MAIN_DIR = os.path.dirname(__file__)
 IMAGES_DIR = os.path.join(MAIN_DIR, "static", "images")
 
-
 def get_coefficients(form):
 
     return {

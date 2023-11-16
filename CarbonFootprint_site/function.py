@@ -1,5 +1,4 @@
 #here are defined all functions usefull into carbon.py
-
 import pandas as pd
 import openpyxl
 import matplotlib.pyplot as plt
@@ -200,7 +199,7 @@ def calcola_tot(lista_df):
      return [tot_dieta,tot_trasporti,tot_casa,tot_abbigliamento,tot]
 
 
-def write_results (prodotti):
+def write_results(prodotti):
 	count=1
 	file=openpyxl.load_workbook('template_results.xlsx')
 	sheet=file['Sheet3']

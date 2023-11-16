@@ -1,0 +1,85 @@
+.home-banner {
+
+  width: 100%;
+  height: 560px;
+  display: flex;
+  padding: var(--dl-space-space-threeunits);
+  align-items: center;
+  flex-direction: row;
+  background-size: cover;
+  justify-content: space-between;
+  background-image: url('https://images.unsplash.com/photo-1506634064465-7dab4de896ed?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDY1fHxncmVlbnxlbnwwfHx8fDE2ODI4NDE4NTc&ixlib=rb-4.0.3&w=1500');
+  background-position: center;
+
+}
+
+.home-title-text {
+
+  font-size: 3rem;
+  text-align: center;
+
+}
+
+.home-text-std {
+
+  font-size: 20px;
+  text-align: center;
+  max-width: var(--dl-size-size-maxwidth);
+  margin-top: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-twounits);
+
+}
+
+.home-text-fancy {
+
+  font-size: 25px;
+  text-align: center;
+  font-family: Bad Script, fantasy;
+  max-width: var(--dl-size-size-maxwidth);
+  margin-top: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-twounits);
+
+}
+
+/* BUTTON STYLE DECLARATION */
+.home-button {
+
+  transition: 0.3s;
+  padding: var(--dl-space-space-unit) var(--dl-space-space-twounits);
+  background-color: rgba(255, 255, 255, 0.66);
+
+}
+.home-button:hover {
+  transform: scale(1.02);
+}
+
+/* FORM STYLE DECLARATION */
+.home-form {
+
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-unit);
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.home-subtitle-container {
+
+  width: 600px;
+  height: 420px;
+  display: flex;
+  margin-top: var(--dl-space-space-fourunits);
+  align-items: start;
+  background-size: cover;
+  justify-content: center;
+  background-position: center;
+
+}
+
+.diet-img{background-image: url("/static/images/DIET.png");}
+.transport-img{background-image: url("/static/images/TRANSPORT.png");}
+.home-img{background-image: url("/static/images/HOME.png");}
+.clothes-img{background-image: url("/static/images/CLOTHES.png");}

@@ -7,10 +7,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('main.html')
 
-@app.route('/results',methods = ['POST', 'GET'])
+@app.route('/results',methods=['POST', 'GET'])
 def result():
+
     if request.method == 'POST':
           dati_html=request.form #rende un dizionario con delle liste contenente tutte le variabili create nell'html
           coefficienti={
