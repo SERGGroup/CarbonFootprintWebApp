@@ -1,0 +1,713 @@
+{%extends "main.html"%}
+{% from "_formhelpers.html" import render_field %}
+{%block form%}
+<form class="home-form" method="POST" action="/results">
+  <fieldset class="subsection-class">
+    <legend class="text-title">DIET</legend>
+    <span class="text-explain">
+      Enter below what you eat in a typical week
+    </span>
+    <div class="subsection-container">
+      <fieldset class="container-sub-subsection">
+        <legend>Protein</legend>
+        <div class="input_container">
+            {{ render_field(form.username) }}
+        </div>
+          <div class="input_container">
+            {{ render_field(form.email) }}
+        </div>
+          <div class="input_container">
+            {{ render_field(form.password) }}
+        </div>
+          <div class="input_container">
+            {{ render_field(form.confirm) }}
+        </div>
+          <div class="input_container">
+            {{ render_field(form.accept_tos) }}
+        </div>
+      </fieldset>
+    </div>
+  </fieldset>
+
+  <div class="subsection-class">
+    <span class="home-text-fancy">
+      Once you have filled you data hit the bottom below!!
+    </span>
+    <button class="home-button button">Calculate</button>
+  </div>
+</form>
+
+<form class="home-form" method="POST" action="/results">
+  <fieldset class="subsection-class">
+    <legend class="text-title">DIET</legend>
+    <span class="text-explain">
+      Enter below what you eat in a typical week
+    </span>
+    <div class="subsection-container">
+      <fieldset class="container-sub-subsection">
+        <legend>Protein</legend>
+        <div class="input_container">
+          <span class="property-name">Beef</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="beef_herd"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">
+            Beef <span class="small">(dairy herd)</span>
+          </span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="beef_dairy"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Lumb & Mutton</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="lumb_mutton"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Cheese</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="cheese"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Poultry meat</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="poultry_meat"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Pig meat</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="pig_meat"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">
+            Prawns <span class="small">(farmed)</span>
+          </span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="prawns_farmed"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">
+            Fish <span class="small">(farmed)</span>
+          </span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="fish_farmed"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">
+            Fish <span class="small">(wild catch)</span>
+          </span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="fish_wildcatch"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Eggs</span>
+          <input
+            type="text"
+            placeholder="[number/week]"
+            class="text-input input"
+            name="eggs"
+          />
+        </div>
+      </fieldset>
+      <fieldset class="container-sub-subsection">
+        <legend>Carbohydrates</legend>
+        <div class="input_container">
+          <span class="property-name">Pasta</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="pasta"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Bread</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="bread"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Wheat & Rye</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="wheat_rye"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">
+            Maize <span class="small">(corn)</span>
+          </span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="maize"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Rice</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="rice"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Cane sugar </span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="cane_sugar"
+          />
+        </div>
+      </fieldset>
+      <fieldset class="container-sub-subsection">
+        <legend>Vegetables & Others</legend>
+        <div class="input_container">
+          <span class="property-name">Apples</span>
+          <input
+            type="text"
+            placeholder="[number/week]"
+            class="text-input input"
+            name="apples"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Chocolate</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="chocolate"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Coffee</span>
+          <input
+            type="text"
+            placeholder="[cup/week]"
+            class="text-input input"
+            name="coffee"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Tomatoes</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="tomatoes"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Peas</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="peas"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Soy milk</span>
+          <input
+            type="text"
+            placeholder="[litre/week]"
+            class="text-input input"
+            name="soy_milk"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Olive oil</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="olive_oil"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Milk</span>
+          <input
+            type="text"
+            placeholder="[litre/week]"
+            class="text-input input"
+            name="milk"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Groundnuts</span>
+          <input
+            type="text"
+            enctype="[litre/week]"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="groundnuts"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Bananas</span>
+          <input
+            type="text"
+            placeholder="[number/week]"
+            class="text-input input"
+            name="bananas"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Root Vegetables</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="root_vegetables"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Citrus fruit</span>
+          <input
+            type="text"
+            placeholder="[number/week]"
+            class="text-input input"
+            name="citrus_fruit"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Nuts</span>
+          <input
+            type="text"
+            placeholder="[g/week]"
+            class="text-input input"
+            name="nuts"
+          />
+        </div>
+      </fieldset>
+    </div>
+  </fieldset>
+  <fieldset class="subsection-class">
+    <legend class="text-title">TRANSPORT</legend>
+    <span class="text-explain">
+      Enter below how many kilometers you travel in a typical week/year
+    </span>
+    <div class="subsection-container">
+      <fieldset class="container-sub-subsection">
+        <legend>Public transport</legend>
+        <div class="input_container">
+          <span class="property-name">Bus</span>
+          <input
+            type="text"
+            placeholder="[km/week]"
+            class="text-input input"
+            name="bus"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">National rail</span>
+          <input
+            type="text"
+            placeholder="[km/week]"
+            class="text-input input"
+            name="national_rail"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">
+            Eurostar <span class="small">(international rail)</span>
+            <br />
+          </span>
+          <input
+            type="text"
+            placeholder="[km/week]"
+            class="text-input input"
+            name="eurostar"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">
+            Ferry <span class="small">(foot passanger)</span>
+          </span>
+          <input
+            type="text"
+            placeholder="[km/week]"
+            class="text-input input"
+            name="ferry"
+          />
+        </div>
+      </fieldset>
+      <fieldset class="container-sub-subsection">
+        <legend>Motorized Individual Traffic</legend>
+        <div class="input_container">
+          <span class="property-name">
+            Car <span class="small">(Petrol)</span>
+          </span>
+          <input
+            type="text"
+            placeholder="[km/week]"
+            class="text-input input"
+            name="mediumcar_petrol"
+          />
+          <select required="" class="select-cls" name="passengers_petrol">
+            <option value="1" selected="">1 passenger</option>
+            <option value="2">2 passengers</option>
+            <option value="3">3 passengers</option>
+            <option value="4">4 passengers</option>
+            <option value="5">5 passengers</option>
+          </select>
+        </div>
+        <div class="input_container">
+          <span class="property-name">
+            Car <span class="small">(Diesel)</span>
+          </span>
+          <input
+            type="text"
+            placeholder="[km/week]"
+            class="text-input input"
+            name="mediumcar_diesel"
+          />
+          <select required="" class="select-cls" name="passengers_diesel">
+            <option value="1" selected="">1 passenger</option>
+            <option value="2">2 passengers</option>
+            <option value="3">3 passengers</option>
+            <option value="4">4 passengers</option>
+            <option value="5">5 passengers</option>
+          </select>
+        </div>
+        <div class="input_container">
+          <span class="property-name">
+            Car <span class="small">(Electric)</span>
+          </span>
+          <input
+            type="text"
+            placeholder="[km/week]"
+            class="text-input input"
+            name="electric_vehicle"
+          />
+          <select required="" class="select-cls" name="passengers_electric">
+            <option value="1" selected="">1 passenger</option>
+            <option value="2">2 passengers</option>
+            <option value="3">3 passengers</option>
+            <option value="4">4 passengers</option>
+            <option value="5">5 passengers</option>
+          </select>
+        </div>
+        <div class="input_container">
+          <span class="property-name">Motorcycle</span>
+          <input
+            type="text"
+            placeholder="[km/week]"
+            class="text-input input"
+            name="motorcycle"
+          />
+          <select required="" class="select-cls" name="passengers_moto">
+            <option value="1" selected="">1 passenger</option>
+            <option value="2">2 passengers</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset class="container-sub-subsection">
+        <legend>Flights</legend>
+        <div class="input_container">
+          <span class="property-name">Domestic</span>
+          <input
+            type="text"
+            placeholder="[km/year]"
+            class="text-input input"
+            name="domestic_flight"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Short Haul</span>
+          <input
+            type="text"
+            placeholder="[km/year]"
+            class="text-input input"
+            name="short_flight"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Long Haul</span>
+          <input
+            type="text"
+            placeholder="[km/year]"
+            class="text-input input"
+            name="long_flight"
+          />
+        </div>
+      </fieldset>
+    </div>
+  </fieldset>
+  <fieldset class="subsection-class">
+    <legend class="text-title">HOME</legend>
+    <span class="text-explain">
+      Enter below some information about your home
+    </span>
+    <div class="subsection-container">
+      <fieldset class="container-sub-subsection">
+        <legend>House Heating</legend>
+        <div class="input_container">
+          <span class="property-name">Number of family members</span>
+          <input
+            type="text"
+            required=""
+            placeholder="[number]"
+            class="text-input input"
+            name="number_family"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Efficiency class</span>
+          <select class="select-cls" name="efficiency_class">
+            <option value="15" selected="">A+</option>
+            <option value="22,5">A</option>
+            <option value="40">B</option>
+            <option value="60">C</option>
+            <option value="80">D</option>
+            <option value="105">E</option>
+            <option value="140">F</option>
+            <option value="180">G</option>
+          </select>
+        </div>
+        <div class="input_container">
+          <span class="property-name">House area</span>
+          <input
+            type="text"
+            placeholder="[m^2]"
+            class="text-input input"
+            name="heating"
+          />
+        </div>
+        <span class="text-info">
+            <span class="small"> Info: Insert the efficiency class and the surface area of your house.</span>
+          </span>
+      </fieldset>
+      <fieldset class="container-sub-subsection">
+          <legend>House Cooling</legend>
+          <div class="input_container">
+            <span class="property-name">Power</span>
+            <input
+              type="text"
+              placeholder="[kW]"
+              class="text-input input"
+              name="cooling_power"
+              required=""
+            />
+          </div>
+          <div class="input_container">
+            <span class="property-name">Hot days</span>
+            <input
+              type="text"
+              placeholder="[days/year]"
+              class="text-input input"
+              name="hot_days"
+              required=""
+            />
+          </div>
+          <div class="input_container">
+            <span class="property-name">Hours per day</span>
+            <input
+              type="text"
+              placeholder="[hours/day]"
+              class="text-input input"
+              name="cooling"
+            />
+          </div>
+          <span class="text-info">
+            <span class="small"> Info: Insert the mean power of your cooling system and the number of day
+              (and hours per day) in which you usually use it.</span>
+          </span>
+        </fieldset>
+      <fieldset class="container-sub-subsection">
+        <legend>Home Appliances</legend>
+        <div class="input_container">
+          <span class="property-name">Refrigerator</span>
+          <input
+            type="text"
+            placeholder="[number]"
+            class="text-input input"
+            name="refrigerator"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Food cooking</span>
+          <input
+            type="text"
+            placeholder="[number/day]"
+            class="text-input input"
+            name="food_cooking"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Oven</span>
+          <input
+            type="text"
+            placeholder="[number/week]"
+            class="text-input input"
+            name="oven"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Washing machine</span>
+          <input
+            type="text"
+            placeholder="[number/week]"
+            class="text-input input"
+            name="washing_machine"
+          />
+        </div>
+        <span class="text-info">
+            <span class="small"> Info: The total impact of the home appliances
+              is divided by the number of person living in the house.</span>
+          </span>
+      </fieldset>
+      <fieldset class="container-sub-subsection">
+        <legend>Other</legend>
+        <div class="input_container">
+          <span class="property-name">Showers</span>
+          <input
+            type="text"
+            placeholder="[number/week]"
+            class="text-input input"
+            name="shower"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Laptop</span>
+          <input
+            type="text"
+            placeholder="[number]"
+            class="text-input input"
+            name="laptop"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Smartphone</span>
+          <input
+            type="text"
+            placeholder="[number]"
+            class="text-input input"
+            name="smartphone"
+          />
+        </div>
+        <span class="text-info">
+            <span class="small"> Info: The items that make up this section
+              are related to your personal use (not divided by the
+              number of people living in the house).</span>
+          </span>
+      </fieldset>
+    </div>
+  </fieldset>
+  <fieldset class="subsection-class">
+    <legend class="text-title">CLOTHES</legend>
+    <span class="text-explain">
+      Enter below how many clothes you buy in a year
+    </span>
+    <div class="subsection-container">
+      <fieldset class="container-sub-subsection">
+        <div class="input_container">
+          <span class="property-name">Cotton shirt</span>
+          <input
+            type="text"
+            placeholder="[number/year]"
+            class="text-input input"
+            name="cotton_shirt"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Cotton sweat jacket</span>
+          <input
+            type="text"
+            placeholder="[number/year]"
+            class="text-input input"
+            name="cotton_sweatjacket"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Acrylic jacket</span>
+          <input
+            type="text"
+            placeholder="[number/year]"
+            class="text-input input"
+            name="acrylic_jacket"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Woolen sweater</span>
+          <input
+            type="text"
+            placeholder="[number/year]"
+            class="text-input input"
+            name="woolen_sweater"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Polyester shirt</span>
+          <input
+            type="text"
+            placeholder="[number/year]"
+            class="text-input input"
+            name="polyester_shirt"
+          />
+        </div>
+        <div class="input_container">
+          <span class="property-name">Jeans</span>
+          <input
+            type="text"
+            placeholder="[number/year]"
+            class="text-input input"
+            name="jeans"
+          />
+        </div>
+      </fieldset>
+    </div>
+  </fieldset>
+  <div class="subsection-class">
+    <span class="home-text-fancy">
+      Once you have filled you data hit the bottom below!!
+    </span>
+    <button class="home-button button">Calculate</button>
+  </div>
+</form>
+{%endblock%}

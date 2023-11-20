@@ -2,6 +2,7 @@ import os
 
 MAIN_DIR = os.path.dirname(__file__)
 IMAGES_DIR = os.path.join(MAIN_DIR, "static", "images")
+EXCEL_DIR = os.path.join(MAIN_DIR, "static", "excel-files")
 
 def get_coefficients(form):
 

@@ -1,5 +1,6 @@
 :root {
 
+  --dl-size-size-xxlarge: 250px;
   --dl-size-size-xlarge: 200px;
   --dl-size-size-large: 150px;
   --dl-size-size-medium: 100px;
@@ -23,7 +24,6 @@
   --dl-color-success-500: #32A94C;
   --dl-color-success-700: #4CC366;
 
-  --dl-size-size-xxlarge: 288px;
   --dl-size-size-maxwidth: 1400px;
   --dl-radius-radius-round: 50%;
   --dl-space-space-halfunit: 8px;
