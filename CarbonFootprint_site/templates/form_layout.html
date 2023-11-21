@@ -1,34 +1,9 @@
 {%extends "main.html"%}
-{% from "_formhelpers.html" import render_field %}
+{% from "_form_helpers.html" import render_form %}
 {%block form%}
-<form class="home-form" method="POST" action="/results">
-  <fieldset class="subsection-class">
-    <legend class="text-title">DIET</legend>
-    <span class="text-explain">
-      Enter below what you eat in a typical week
-    </span>
-    <div class="subsection-container">
-      <fieldset class="container-sub-subsection">
-        <legend>Protein</legend>
-        <div class="input_container">
-            {{ render_field(form.username) }}
-        </div>
-          <div class="input_container">
-            {{ render_field(form.email) }}
-        </div>
-          <div class="input_container">
-            {{ render_field(form.password) }}
-        </div>
-          <div class="input_container">
-            {{ render_field(form.confirm) }}
-        </div>
-          <div class="input_container">
-            {{ render_field(form.accept_tos) }}
-        </div>
-      </fieldset>
-    </div>
-  </fieldset>
 
+<form class="home-form" method="POST" action="/">
+  {{ render_form(form, main_class.input_list) }}
   <div class="subsection-class">
     <span class="home-text-fancy">
       Once you have filled you data hit the bottom below!!
@@ -36,7 +11,6 @@
     <button class="home-button button">Calculate</button>
   </div>
 </form>
-
 <form class="home-form" method="POST" action="/results">
   <fieldset class="subsection-class">
     <legend class="text-title">DIET</legend>
@@ -710,4 +684,7 @@
     <button class="home-button button">Calculate</button>
   </div>
 </form>
+{%endblock%}
+
+{%block finalremarks%}
 {%endblock%}

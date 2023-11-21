@@ -14,15 +14,11 @@
         <h1>Total impact</h1>
         <div class="results-container06">
           <span>Carbon dioxide produced per day:&nbsp;</span>
-          <span class="results-text05">{{output[4]}}</span>
+          <span class="results-text05">{{main_class.co2_cost}}</span>
           <span class="results-text06">[kgCO2/day]</span>
         </div>
       </div>
-      <img
-        alt="image"
-        src="static/images/grafico_totale.png"
-        class="results-image2"
-      />
+      <div><canvas id="pie_total_chart"></canvas></div>
     </div>
     <div class="results-container07">
       <h1 class="results-text07">You respect the world</h1>
@@ -38,7 +34,7 @@
       <h1 class="results-text08">Diet</h1>
       <div class="results-container10">
         <span class="results-text09">Total amount:</span>
-        <span class="results-text10">{{output[0]}}</span>
+        <span class="results-text10">{{main_class.input_list[0].co2_cost}}</span>
         <span class="results-text11">[kgCO2/day]</span>
       </div>
       <img
@@ -51,7 +47,7 @@
       <h1 class="results-text12">Transport</h1>
       <div class="results-container12">
         <span class="results-text13">Total amount:</span>
-        <span class="results-text14">{{output[1]}}</span>
+        <span class="results-text14">{{main_class.input_list[1].co2_cost}}</span>
         <span class="results-text15">[kgCO2/day]</span>
       </div>
       <img
@@ -66,7 +62,7 @@
       <h1 class="results-text16">Home</h1>
       <div class="results-container15">
         <span class="results-text17">Total amount:</span>
-        <span class="results-text18">{{output[2]}}</span>
+        <span class="results-text18">{{main_class.input_list[2].co2_cost}}</span>
         <span class="results-text19">[kgCO2/day]</span>
       </div>
       <img
@@ -79,7 +75,7 @@
       <h1 class="results-text20">Textile</h1>
       <div class="results-container17">
         <span class="results-text21">Total amount:</span>
-        <span class="results-text22">{{output[3]}}</span>
+        <span class="results-text22">{{main_class.input_list[3].co2_cost}}</span>
         <span class="results-text23">[kgCO2/day]</span>
       </div>
       <img
@@ -98,4 +94,29 @@
 <a href="/download">
 <button class="results-button button">Download</button>
 </a>
+{%endblock%}
+{%block finalremarks%}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('pie_total_chart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
 {%endblock%}

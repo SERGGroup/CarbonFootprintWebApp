@@ -1,25 +1,29 @@
-from flask import Flask, render_template, request, send_file
-from python_code.form_class import RegistrationForm
-from python_code.function import calcola_tot, crea_grafici, controlla_ingressi,dividi_df, calcola_output, write_results
+from flask import Flask, render_template, request, send_file, redirect
+from .python_code.form_class import MainFormClass
+from .python_code.function import calcola_tot, crea_grafici, controlla_ingressi,dividi_df, calcola_output, write_results
 import pandas as pd
 import os
+
 app = Flask(__name__)
+main_class = MainFormClass()
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def home():
 
-    form = RegistrationForm(request.form)
-    return render_template('form_layout.html', form=form)
+    curr_form = main_class.form_class(request.form)
 
-    # return render_template('form_layout.html')
+    if request.method == 'POST' and curr_form.validate():
 
-@app.route('/results',methods=['POST', 'GET'])
+        main_class.evaluate_results(curr_form)
+        return render_template('results.html', main_class=main_class)
+
+    return render_template('form_layout.html', form=curr_form, main_class=main_class)
+
+@app.route('/results')
 def result():
 
-    form = RegistrationForm(request.form)
-    if request.method == 'POST' and form.validate():
-
+    a = input_list
           # dati_html = request.form #rende un dizionario con delle liste contenente tutte le variabili create nell'html
           # coefficienti={
           #     #alimentazione
@@ -64,6 +68,7 @@ def result():
           #     'national_rail':0.041/7,
           #     'ferry':0.019/7,
           #     'eurostar':0.006/7,
+
           #     #casa
           #     'refrigerator':0.14/float(request.form['number_family']), #kgco2/day
           #     'food_cooking':0.05048/float(request.form['number_family']), #kgco2/meal
@@ -107,14 +112,9 @@ def result():
           #       os.remove('./static/images/grafico_comparativa.png')
           #
 
-        output = [30, 150, 100, 20, 300]
-        return render_template('results.html', output=output)
+    output = [30, 150, 100, 20, 300]
+    return render_template('results.html', output=output)
 
-    else:
-
-        return render_template('form_layout.html', form=form)
-        return 'First insert your data and calculate your carbon footprint!'
-        
 @app.route('/download')
 def download():
     
