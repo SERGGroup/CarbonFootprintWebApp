@@ -1,7 +1,7 @@
-{%extends "main.html"%}
-{% from "_form_helpers.html" import render_form %}
+{%extends "main.html" %}
+{% from "support/_form_helpers.html" import render_form %}
 {%block form%}
-<form class="home-form" method="POST" action="/">
+<form class="home-form" method="POST" action="/CarbonFootprint_site/static">
   {{ render_form(form, main_class.input_list) }}
   <div class="subsection-class">
     <span class="home-text-fancy">

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file, redirect
-from python_code.form_class import MainFormClass
-from python_code.constants import EXCEL_DIR
+from .python_code.form_class import MainFormClass
+from .python_code.constants import EXCEL_DIR
 import pandas as pd
 import os
 
@@ -18,7 +18,7 @@ def home():
         main_class.evaluate_results(curr_form)
         return render_template('results.html', main_class=main_class)
 
-    return render_template('form_layout.html', form=curr_form, main_class=main_class)
+    return render_template('support/form_layout.html', form=curr_form, main_class=main_class)
 
 @app.route('/download')
 def download():
