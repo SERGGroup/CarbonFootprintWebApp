@@ -2,137 +2,48 @@
 {%block title%}Results{%endblock%}
 {%block content%}
 <link href="static/how-it-works.css" rel="stylesheet" />
-<div class="how-it-works-banner">
-  <h1 class="how-it-works-text">
-    How it works - brief introduction to CarbonApp
-  </h1>
-  <span class="how-it-works-text01">
-    <span class="how-it-works-text02">
-      CarbonApp is a calculator that calculates the emissions of Carbon
-      Dioxide equivalent ( because it also evaluates other substances'
-      impact, like methane that contributes to global warming potential)
-      related to the lifestyle of a single person.
+<div class="how-banner">
+  <div>
+    <span class="title-text">
+    How it works
+    <br>
+    <span class="text-fancy">
+      A brief introduction to CarbonApp
     </span>
-    <br />
-    <br class="how-it-works-text04" />
-    <span class="how-it-works-text05">
-      In fact it uses data about the lifestyle of the person that uses
-      the calculator; the main fields that we used are: Diet, Transport,
-      Home and Clothes.
-    </span>
-    <br />
-    <br class="how-it-works-text07" />
-    <span class="how-it-works-text08">
-      All the data that are used for this project are taken by
-      literature and articles, and are all reported into an excel file
-      that you can download at the end of the page.
-    </span>
-    <br />
-    <br class="how-it-works-text10" />
-    <span class="how-it-works-text11">
-      In each input box you have to insert the related data, if the
-      answer is “0” you can choose to not insert anything.
-    </span>
-    <br />
-    <br class="how-it-works-text13" />
-    <span class="how-it-works-text14">
-      All the decimal numbers that you insert must use “,” and
-      absolutely not “.” because it will not be evaluated by the program
-      and it will return some errors.
-    </span>
-    <br />
-    <br class="how-it-works-text16" />
-    <span class="how-it-works-text17">
-      It’s also recommended to insert at least one input for each field,
-      for the correct operation of the site.
-    </span>
-    <br />
-    <br class="how-it-works-text19" />
-    <span class="how-it-works-text20">For the</span>
-    <span class="how-it-works-text21">Diet</span>
-    <span class="how-it-works-text22">
-      part you have to insert data about a typical week, and what you
-      eat in average quantities; the most impactful elements are the
-      beef part, so pay more attention to these data in order to get
-      more realistic results.
-    </span>
-    <br />
-    <br class="how-it-works-text24" />
-    <span class="how-it-works-text25">For the</span>
-    <span class="how-it-works-text26">Transport</span>
-    <span class="how-it-works-text27">
-      part, you have to similarly insert data about which method to move
-      around in a typical week you use; there is also a part related to
-      airplanes that needs data referred to a typical year, because we
-      supposed that could be easier to insert such data.
-    </span>
-    <br />
-    <br class="how-it-works-text29" />
-    <span class="how-it-works-text30">
-      Obviously if you use a bicycle or you move by walk you can insert
-      any data in the transport boxes, and you don’t need to insert how
-      much kilometers you run by bicycle/walk because it not produce any
-      emission (probably could be insert the production impact of the
-      bicycle, but this element is negligible with bike sharing). Both
-      walking and bicycling reduce your Footprint and improve your
-      well-being.
-    </span>
-    <br />
-    <br class="how-it-works-text32" />
-    <span class="how-it-works-text33">For the</span>
-    <span class="how-it-works-text34">House</span>
-    <span class="how-it-works-text35">
-      part, the first thing to insert is the number of family members,
-      because it allows to distribute the impact of some part, like the
-      impact of house heating or washing machine; the elements that are
-      corrected with the number of family members are indicated into the
-      information box near to the input box.
-    </span>
-    <br />
-    <br class="how-it-works-text37" />
-    <span class="how-it-works-text38">For the</span>
-    <span class="how-it-works-text39">Clothes</span>
-    <span class="how-it-works-text40">
-      part, you have to insert the number of clothes that you buy each
-      year; all the data used for this part are affected by lack of
-      knowledge because there is a very poor database about this field,
-      in fact we used data from different countries and this makes the
-      data not regional coerent.
-    </span>
-    <br />
-    <br class="how-it-works-text42" />
-    <span class="how-it-works-text43">
-      At the end of the input collection you can press the Calculate
-      button in order to see your results.
-    </span>
-    <br />
-    <br class="how-it-works-text45" />
-    <span class="how-it-works-text46">
-      Different graphs are shown, in particular: there is a comparison
-      of your impact in the four fields that we asked for data, and also
-      a comparison of your global impact with respect to the per capita
-      impact of different countries in the world.
-    </span>
-    <br />
-    <br class="how-it-works-text48" />
-    <span class="how-it-works-text49">
-      At the end of the results page there is a Download button that
-      allows you to download an excel file that contains all the impacts
-      for each element, and create different and more detailed graphs.
-      Remember to activate the excel file in order to see the results.
-    </span>
-    <br />
-    <br class="how-it-works-text51" />
-    <br />
-    <br class="how-it-works-text53" />
   </span>
-  <span class="how-it-works-text54">
-    With the following buttun you can download an excel file that
-    contains all the reference and data used for this web site
-  </span>
-  <a href="/references">
-    <button class="how-it-works-button button">References</button>
-  </a>
+  </div>
+  <div class="text-container">
+    <span class="text-std">
+
+      CarbonApp is a calculator that calculates the emissions of Carbon Dioxide
+      equivalent related to the lifestyle of a single person. To evaluate the impact of a specific
+      person we use data provided by the user about hiss or hers lifestyle. These data are converted into a emission
+      factor using correlations retrieved in the scientific literature. The sources are listed in the Excel file that
+      you can download at the end of the page.
+      <br>
+      For the <span class="text-bold">Diet</span> section the user have to insert data about a typical week, and what you
+      eat in average quantities. For the <span class="text-bold">Transport</span> section, you have to similarly insert
+      data about which method to move around in a typical week you use. Obviously, the number of kilometers travelled by
+      foot or by bike are not considered as they are associated with negligible emissions. For the
+      <span class="text-bold">House</span> section, the first thing to insert is the number of people that you
+      share the house with, because it allows to distribute the impact of some part, like the impact of house heating or washing machine;
+      the elements that are corrected with the number of family members are indicated into the information box below
+      the input groups. For the <span class="text-bold">Clothes</span> section, you have to insert the number
+      of clothes that you buy each year.
+      <br>
+      Once you have done with the input collection you can press the "Calculate" button in order to see your results.
+
+    </span>
+  </div>
+  <div class="subsection-class">
+    <span class="home-text-fancy">
+      With the following button you can download an Excel file that
+      contains all the reference and data used for this web site
+    </span>
+    <a href="/references">
+      <button class="home-button button">References</button>
+    </a>
+  </div>
 </div>
 {%endblock%}
 

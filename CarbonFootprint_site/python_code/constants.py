@@ -1,6 +1,6 @@
 import os
 
-MAIN_DIR = os.path.dirname(__file__)
+MAIN_DIR = os.path.dirname(os.path.dirname(__file__))
 IMAGES_DIR = os.path.join(MAIN_DIR, "static", "images")
 EXCEL_DIR = os.path.join(MAIN_DIR, "static", "excel-files")
 
@@ -492,5 +492,22 @@ def get_initializer():
             }
 
         }
+
+    }
+
+
+def get_world_co2_impact():
+
+    return {
+
+        'United States': 14.86 * 1000,
+        'Germany': 8.09*1000,
+        'Europe': 7.11*1000,
+        'Italy': 5.55 * 1000,
+        'Spain': 4.92*1000,
+        'France': 4.74*1000,
+        'World': 4.69*1000,
+        'Asia': 4.62*1000,
+        'Bangladesh': 0.55*1000,
 
     }

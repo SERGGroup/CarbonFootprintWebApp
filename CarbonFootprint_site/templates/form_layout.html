@@ -1,7 +1,6 @@
 {%extends "main.html"%}
 {% from "_form_helpers.html" import render_form %}
 {%block form%}
-
 <form class="home-form" method="POST" action="/">
   {{ render_form(form, main_class.input_list) }}
   <div class="subsection-class">
@@ -685,6 +684,5 @@
   </div>
 </form>
 {%endblock%}
-
 {%block finalremarks%}
 {%endblock%}

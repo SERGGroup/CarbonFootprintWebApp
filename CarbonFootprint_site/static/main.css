@@ -10,6 +10,15 @@
   padding: 25px;
 
 }
+
+.canvas-class {
+
+  aspect-ratio: 1 / 1;
+  width: 30vw;
+  min-width: 250px;
+
+}
+
 .home-banner .title-text {
 
     font-size: 3rem;
@@ -71,6 +80,18 @@
   padding-right: 50px;
   flex-direction: column;
   justify-content: center;
+
+}
+
+.subsection-class-no-border {
+
+  width: inherit;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 
 }
 

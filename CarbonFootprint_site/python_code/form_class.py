@@ -1,7 +1,9 @@
 from wtforms import Form, BooleanField, StringField, PasswordField, validators
+from .constants import get_initializer, get_world_co2_impact
 from wtforms.widgets.core import TextInput
-from .constants import get_initializer
+from abc import ABC, abstractmethod
 
+WORLD_IMPACT = get_world_co2_impact()
 
 class CustomStringInput(TextInput):
 
@@ -15,13 +17,60 @@ class CustomStringField(StringField):
     widget = CustomStringInput()
 
 
+class CollectionPlotter:
+
+    def __init__(self, collection):
+
+        self.collection = collection
+
+        self.id = hash(collection)
+        self.comparison_id = hash(self)
+
+        self.labels = list()
+        self.output_list = list()
+        self.comparison_dict = WORLD_IMPACT
+        self.comparison_labels = list()
+        self.comparison_values = list()
+
+    def update(self):
+
+        self.labels = list()
+        self.output_list = list()
+
+        input_list = self.collection.input_list
+
+        if len(input_list) == 1:
+
+            if hasattr(input_list[0], "input_list"):
+
+                input_list = input_list[0].input_list
+
+        for main_modules in input_list:
+
+            self.labels.append(main_modules.name)
+            self.output_list.append(main_modules.co2_cost)
+
+        self.comparison_dict.update({
+
+            "You": self.collection.co2_cost
+
+        })
+
+        self.comparison_dict = dict(sorted(self.comparison_dict.items(), key=lambda x:x[1]))
+        self.comparison_labels = list(self.comparison_dict.keys())
+        self.comparison_values = list(self.comparison_dict.values())
+
+        self.id = hash(self.collection)
+        self.comparison_id = hash(self)
+
+
 class CustomInput:
 
-    def __init__(self, name, input_dict, super_class):
+    def __init__(self, name, input_dict, collection_class):
 
         self.name = name
         self.__init_from_dict(input_dict)
-        self.super_class = super_class
+        self.collection_class = collection_class
 
         self.value = 0.
         self.co2_cost = 0.
@@ -58,7 +107,7 @@ class CustomInput:
     @property
     def get_name(self):
 
-        return "{}_{}".format(self.super_class.main_class.name, self.name)
+        return "{}_{}".format(self.collection_class.main_class.name, self.name)
 
     @property
     def has_sub_label(self):
@@ -87,18 +136,48 @@ class CustomInput:
             self.co2_cost /= 356
 
 
-class FormSubModules:
+class InputCollection(ABC):
 
     def __init__(self, name, init_dict, main_class):
 
-        self.name = name
         self.co2_cost = 0.
+
+        self.name = name
+        self.main_class = main_class
+        self.input_list = list()
+
+        self.init_from_dict(init_dict)
+        self.plotter = CollectionPlotter(self)
+
+    @abstractmethod
+    def init_from_dict(self, init_dict):
+
+        pass
+
+    def append_data(self, form):
+
+        for input_value in self.input_list:
+            input_value.append_data(form)
+
+    def evaluate_co2_cost(self):
+
+        self.co2_cost = 0.
+        for input_value in self.input_list:
+
+            if hasattr(input_value, "evaluate_co2_cost"):
+                input_value.evaluate_co2_cost()
+
+            self.co2_cost += input_value.co2_cost
+
+        self.plotter.update()
+
+
+class FormSubModules(InputCollection):
+
+    def init_from_dict(self, init_dict):
 
         if self.name.lower() == "none":
             self.name = None
-
-        self.input_list = list()
-        self.main_class = main_class
 
         for input_key in init_dict.keys():
             new_field = CustomInput(input_key, init_dict[input_key], self)
@@ -121,30 +200,17 @@ class FormSubModules:
 
         return return_dict
 
-    def append_data(self, form):
 
-        for input_value in self.input_list:
-            input_value.append_data(form)
+class FormMainModules(InputCollection):
 
-    def overall_co2_cost(self):
+    def init_from_dict(self, init_dict):
 
-        self.co2_cost = 0.
-        for input_value in self.input_list:
-            self.co2_cost += input_value.co2_cost
-
-
-class FormMainModules:
-
-    def __init__(self, name, init_dict):
-
-        self.name = name
-        self.input_list = list()
         self.explanation = init_dict.get("Explanation")
-        self.co2_cost = 0.
 
         for sub_key in init_dict.keys():
 
             if type(init_dict[sub_key]) == dict:
+
                 self.input_list.append(FormSubModules(sub_key, init_dict[sub_key], self))
 
     def get_fields_dict(self):
@@ -160,30 +226,23 @@ class FormMainModules:
 
         return self.explanation is not None
 
-    def append_data(self, form):
 
-        for sub_modules in self.input_list:
-            sub_modules.append_data(form)
+class MainFormClass(InputCollection):
 
-    def overall_co2_cost(self):
+    def init_from_dict(self, init_dict):
 
-        self.co2_cost = 0.
-        for input_value in self.input_list:
-            self.co2_cost += input_value.co2_cost
+        self.return_dict = dict()
 
-
-class MainFormClass:
+        for base_key in init_dict.keys():
+            self.input_list.append(FormMainModules(base_key, init_dict[base_key], self))
+            self.return_dict.update(self.input_list[-1].get_fields_dict())
 
     def __init__(self):
 
         init_dict = get_initializer()
-        self.input_list = list()
         self.return_dict = dict()
-        self.co2_cost = 0.
 
-        for base_key in init_dict.keys():
-            self.input_list.append(FormMainModules(base_key, init_dict[base_key]))
-            self.return_dict.update(self.input_list[-1].get_fields_dict())
+        super().__init__("Main", init_dict, None)
 
         self.form_class = self.__init_form_class()
 
@@ -199,10 +258,28 @@ class MainFormClass:
 
     def evaluate_results(self, curr_form):
 
-        self.co2_cost = 0.
-
         for main_modules in self.input_list:
 
             main_modules.append_data(curr_form)
-            main_modules.overall_co2_cost()
-            self.co2_cost += main_modules.co2_cost
+
+        self.evaluate_co2_cost()
+
+    @property
+    def labels(self):
+
+        labels = list()
+        for main_modules in self.input_list:
+
+            labels.append(main_modules.name)
+
+        return labels
+
+    @property
+    def output_list(self):
+
+        output_list = list()
+        for main_modules in self.input_list:
+
+            output_list.append(main_modules.co2_cost)
+
+        return output_list

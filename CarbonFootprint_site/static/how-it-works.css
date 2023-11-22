@@ -1,447 +1,54 @@
-.how-it-works-container {
-  width: 100%;
+.how-banner {
+
   display: flex;
-  overflow: auto;
-  min-height: 100vh;
-  align-items: center;
   flex-direction: column;
-}
-.how-it-works-header {
-  width: 100%;
-  display: flex;
-  max-width: var(--dl-size-size-maxwidth);
+  background-size: cover;
   align-items: center;
-  padding-top: var(--dl-space-space-twounits);
-  padding-left: var(--dl-space-space-threeunits);
-  padding-right: var(--dl-space-space-threeunits);
-  padding-bottom: var(--dl-space-space-twounits);
-  justify-content: space-between;
+  gap: 25px;
+  padding: 25px;
+
 }
-.how-it-works-image {
-  width: 136px;
-  height: 136px;
-}
-.how-it-works-image1 {
-  width: 205px;
-  height: 98px;
-  object-fit: cover;
-  margin-left: 0px;
-}
-.how-it-works-banner {
-  width: 100%;
-  height: auto;
-  display: flex;
-  padding: var(--dl-space-space-threeunits);
-  align-items: center;
+
+.text-container {
+
+  width: 50vw;
   flex-direction: column;
-  justify-content: space-between;
-  background-color: #D9D9D9;
-}
-.how-it-works-text {
-  font-size: 2rem;
-  text-align: center;
-}
-.how-it-works-text01 {
-  font-size: 18px;
-  max-width: var(--dl-size-size-maxwidth);
-  margin-top: var(--dl-space-space-twounits);
-  text-align: center;
-  margin-bottom: var(--dl-space-space-twounits);
-}
-.how-it-works-text21 {
-  font-style: normal;
-  font-weight: 600;
-}
-.how-it-works-text26 {
-  font-style: normal;
-  font-weight: 600;
-}
-.how-it-works-text34 {
-  font-style: normal;
-  font-weight: 600;
-}
-.how-it-works-text39 {
-  font-style: normal;
-  font-weight: 600;
-}
-.how-it-works-text54 {
-  font-size: 20px;
-  max-width: var(--dl-size-size-maxwidth);
-  margin-top: 0px;
-  text-align: center;
-  font-family: Bad Script;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-bottom: var(--dl-space-space-unit);
-}
-.how-it-works-button {
-  transition: 0.3s;
-  padding-top: var(--dl-space-space-unit);
-  padding-left: var(--dl-space-space-twounits);
-  padding-right: var(--dl-space-space-twounits);
-  padding-bottom: var(--dl-space-space-unit);
-  background-color: rgba(255, 255, 255, 0.66);
-}
-.how-it-works-button:hover {
-  transform: scale(1.02);
-}
-.how-it-works-footer {
-  width: 100%;
-  display: flex;
-  max-width: var(--dl-size-size-maxwidth);
+  background-size: cover;
+  background-position: center;
   align-items: center;
-  padding-top: var(--dl-space-space-twounits);
-  padding-left: var(--dl-space-space-threeunits);
-  padding-right: var(--dl-space-space-threeunits);
-  padding-bottom: var(--dl-space-space-twounits);
-  justify-content: space-between;
+  gap: 25px;
+  padding: 25px;
+
 }
-.how-it-works-image2 {
-  width: 97px;
-  height: 97px;
-  object-fit: cover;
-}
-.how-it-works-icon-group {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.how-it-works-icon {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-  margin-right: var(--dl-space-space-twounits);
-}
-.how-it-works-icon2 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-  margin-right: var(--dl-space-space-twounits);
-}
-.how-it-works-icon4 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-}
-@media(max-width: 991px) {
-  .how-it-works-text01 {
-    max-width: 100%;
-  }
-  .how-it-works-text02 {
-    max-width: 100%;
-  }
-  .how-it-works-text04 {
-    max-width: 100%;
-  }
-  .how-it-works-text05 {
-    max-width: 100%;
-  }
-  .how-it-works-text07 {
-    max-width: 100%;
-  }
-  .how-it-works-text08 {
-    max-width: 100%;
-  }
-  .how-it-works-text10 {
-    max-width: 100%;
-  }
-  .how-it-works-text11 {
-    max-width: 100%;
-  }
-  .how-it-works-text13 {
-    max-width: 100%;
-  }
-  .how-it-works-text14 {
-    max-width: 100%;
-  }
-  .how-it-works-text16 {
-    max-width: 100%;
-  }
-  .how-it-works-text17 {
-    max-width: 100%;
-  }
-  .how-it-works-text19 {
-    max-width: 100%;
-  }
-  .how-it-works-text20 {
-    max-width: 100%;
-  }
-  .how-it-works-text21 {
-    max-width: 100%;
-  }
-  .how-it-works-text22 {
-    max-width: 100%;
-  }
-  .how-it-works-text24 {
-    max-width: 100%;
-  }
-  .how-it-works-text25 {
-    max-width: 100%;
-  }
-  .how-it-works-text26 {
-    max-width: 100%;
-  }
-  .how-it-works-text27 {
-    max-width: 100%;
-  }
-  .how-it-works-text29 {
-    max-width: 100%;
-  }
-  .how-it-works-text30 {
-    max-width: 100%;
-  }
-  .how-it-works-text32 {
-    max-width: 100%;
-  }
-  .how-it-works-text33 {
-    max-width: 100%;
-  }
-  .how-it-works-text34 {
-    max-width: 100%;
-  }
-  .how-it-works-text35 {
-    max-width: 100%;
-  }
-  .how-it-works-text37 {
-    max-width: 100%;
-  }
-  .how-it-works-text38 {
-    max-width: 100%;
-  }
-  .how-it-works-text39 {
-    max-width: 100%;
-  }
-  .how-it-works-text40 {
-    max-width: 100%;
-  }
-  .how-it-works-text42 {
-    max-width: 100%;
-  }
-  .how-it-works-text43 {
-    max-width: 100%;
-  }
-  .how-it-works-text45 {
-    max-width: 100%;
-  }
-  .how-it-works-text46 {
-    max-width: 100%;
-  }
-  .how-it-works-text48 {
-    max-width: 100%;
-  }
-  .how-it-works-text49 {
-    max-width: 100%;
-  }
-  .how-it-works-text51 {
-    max-width: 100%;
-  }
-  .how-it-works-text53 {
-    max-width: 100%;
-  }
-  .how-it-works-text54 {
-    max-width: 100%;
-  }
-}
-@media(max-width: 767px) {
-  .how-it-works-header {
-    padding-left: var(--dl-space-space-twounits);
-    padding-right: var(--dl-space-space-twounits);
-  }
-  .how-it-works-image {
-    width: 116px;
-    height: 116px;
-  }
-  .how-it-works-banner {
-    padding-left: var(--dl-space-space-twounits);
-    padding-right: var(--dl-space-space-twounits);
-  }
-  .how-it-works-text01 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text02 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text04 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text05 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text07 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text08 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text10 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text11 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text13 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text14 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text16 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text17 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text19 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text20 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text21 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text22 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text24 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text25 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text26 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text27 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text29 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text30 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text32 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text33 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text34 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text35 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text37 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text38 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text39 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text40 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text42 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text43 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text45 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text46 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text48 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text49 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text51 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text53 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-text54 {
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-  }
-  .how-it-works-footer {
-    padding-left: var(--dl-space-space-twounits);
-    padding-right: var(--dl-space-space-twounits);
-  }
-  .how-it-works-text55 {
+
+.how-banner .title-text {
+
+    font-size: 3rem;
     text-align: center;
-    margin-left: var(--dl-space-space-unit);
-    margin-right: var(--dl-space-space-unit);
+
   }
-}
-@media(max-width: 479px) {
-  .how-it-works-header {
-    padding: var(--dl-space-space-unit);
-  }
-  .how-it-works-banner {
-    padding-top: var(--dl-space-space-twounits);
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-    padding-bottom: var(--dl-space-space-twounits);
-  }
-  .how-it-works-text54 {
+
+.how-banner .text-std {
+
     font-size: 20px;
+    text-align: center;
+
   }
-  .how-it-works-footer {
-    padding: var(--dl-space-space-unit);
-    flex-direction: column;
+
+.how-banner .text-bold {
+
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+
   }
-  .how-it-works-image2 {
-    margin-bottom: var(--dl-space-space-unit);
+
+.how-banner .text-fancy {
+
+    font-size: 25px;
+    max-width: 80%;
+    height: fit-content;
+    text-align: center;
+    font-family: Bad Script, fantasy;
+
   }
-  .how-it-works-text55 {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: var(--dl-space-space-unit);
-  }
-}
