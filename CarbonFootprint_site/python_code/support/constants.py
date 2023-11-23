@@ -369,7 +369,87 @@ def get_initializer():
         "HOME": {
 
             "Explanation": "Enter below some information about your home",
+            "General Information": {
+
+                'People Living in the House': {
+
+                    "placeholder": "[Number]"
+
+                },
+
+            },
+            "House Heating": {
+
+                "Explanation": 'Insert the efficiency class and the surface area of your house together with the '
+                               'heating device installed in you house.',
+
+                "Evaluation-Function": "evaluate_heating",
+
+                'Heating Device': {
+
+                    "type": "dropdown",
+                    "acceptable": {
+
+                        "Boiler": 0.273,      # Considering Metane boiler with 75% efficiency -> 0,2733 kg_CO2 / kWh
+                        "Heat Pump": 0.114    # Considering COP = 4 and energy mix emission = 0,457 kg_CO2 / kWh
+
+                    }
+
+                },
+                'Efficiency class': {
+
+                    "type": "dropdown",
+                    "acceptable": {
+
+                        "A4": 0.3,
+                        "A3": 0.5,
+                        "A2": 0.7,
+                        "A1": 0.9,
+                        "B": 1.10,
+                        "C": 1.35,
+                        "D": 1.75,
+                        "E": 2.30,
+                        "F": 3.05,
+                        "G": 3.50
+
+                    },
+
+                },
+                'House area': {
+
+                    "placeholder": "[m^2]"
+
+                }
+
+            },
+            "House Cooling": {
+
+                "Explanation": "Insert the mean power of your cooling system and the number of day (and hours per "
+                               "day) in which you usually use it.",
+
+                "Evaluation-Function": "evaluate_cooling",
+
+                'Power': {
+
+                    "placeholder": "[kW]"
+
+                },
+                'Hot days': {
+
+                    "placeholder": "[days/year]"
+
+                },
+                'Hours per day': {
+
+                    "placeholder": "[hours/days]"
+
+                }
+
+            },
             "Home Appliances": {
+
+                "Explanation": 'The total impact of the home appliances is divided by the number of person living in '
+                               'the house.',
 
                 'Refrigerator': {
 
@@ -407,10 +487,13 @@ def get_initializer():
             },
             "Other": {
 
+                "Explanation": "The items that make up this section are related to your personal use (not divided by "
+                               "the number of people living in the house).",
+
                 'Personal Cleaning': {
 
                     "base-multiplier": 0.6057,  # shower/week
-                    "placeholder": "[showers/week]",
+                    "placeholder": "[shower/week]",
                     "unit-conversion-multi": 1,
                     "time-base": "week"
 
@@ -500,14 +583,15 @@ def get_world_co2_impact():
 
     return {
 
-        'United States': 14.86 * 1000,
-        'Germany': 8.09*1000,
-        'Europe': 7.11*1000,
-        'Italy': 5.55 * 1000,
-        'Spain': 4.92*1000,
-        'France': 4.74*1000,
-        'World': 4.69*1000,
-        'Asia': 4.62*1000,
-        'Bangladesh': 0.55*1000,
+        'World': 4690,
+        'Asia': 4620,
+        'South America': 2500,
+        'North America': 10300,
+        'Africa': 1000,
+        'Europe': 7110,
+        'United States': 14860,
+        'Germany': 8090,
+        'Italy': 5550,
+        'France': 4740,
 
     }

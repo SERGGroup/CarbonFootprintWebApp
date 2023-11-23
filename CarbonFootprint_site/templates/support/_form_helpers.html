@@ -22,11 +22,16 @@
 {% macro render_field_section(form, field_section) %}
 <fieldset class="container-sub-subsection">
     {% if field_section.has_name %}
-    <legend>{{ field_section.name }}</legend>
+    <legend><span class="italic-text">{{ field_section.name }}</span></legend>
     {% endif %}
     {% for input in field_section.input_list %}
     {{ render_field(form[input.get_name], input) }}
     {% endfor %}
+    {% if field_section.has_explanation %}
+    <span class="text-info">
+        <span class="small"> Info: {{ field_section.explanation }} </span>
+    </span>
+    {% endif %}
 </fieldset>
 {% endmacro %}
 
@@ -37,6 +42,13 @@
     <span class="text-explain">
         {{ form_section.explanation }}
     </span>
+    {% endif %}
+    {% if form_section.has_direct_fields %}
+    <fieldset class="container-direct">
+        {% for input in form_section.direct_fields %}
+        {{ render_field(form[input.get_name], input) }}
+        {% endfor %}
+    </fieldset>
     {% endif %}
     <div class="subsection-container">
         {% for field_section in form_section.input_list %}

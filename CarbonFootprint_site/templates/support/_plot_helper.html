@@ -1,6 +1,5 @@
 {% macro render_plot_script(plotter) %}
 <script>
-
     new Chart(document.getElementById({{ plotter.id | tojson }}), {
     type: 'doughnut',
     data: {
@@ -25,17 +24,46 @@
         data: {
 
             labels: {{ plotter.comparison_labels | tojson }},
-            datasets: [{
+            datasets: [
 
-                label: 'Comparison',
-                data: {{ plotter.comparison_values | tojson }},
+            {% for key in plotter.comparison_value_organized.keys()%}
+                {
+                    label: {{ key | tojson }},
+                    data: {{ plotter.comparison_value_organized[key] | tojson }},
 
-            }]
+                },
+            {% endfor %}
+
+            ]
 
         },
         options: {
+
             maintainAspectRatio: false,
+            scales: {
+
+                x: {stacked: true},
+                y: {
+
+                    stacked: true,
+                    title: {
+                        display: true,
+                        text: 'Emission [kg CO2/year]'
+                    }
+
+                }
+
+            },
+
         },
+
     });
 </script>
 {%endmacro%}
+
+plugins: {
+    title: {
+        display: true,
+        text: 'Chart.js Bar Chart - Stacked'
+    },
+},
