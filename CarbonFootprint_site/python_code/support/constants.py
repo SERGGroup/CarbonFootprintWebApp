@@ -1,13 +1,14 @@
 import os
 
 CODE_DIR = os.path.dirname(os.path.dirname(__file__))
-IMAGES_DIR = os.path.join(CODE_DIR, "static", "images")
-EXCEL_DIR = os.path.join(CODE_DIR, "static", "excel-files")
+
 MAIN_DIR = os.path.dirname(CODE_DIR)
+IMAGES_DIR = os.path.join(MAIN_DIR, "static", "images")
+EXCEL_DIR = os.path.join(MAIN_DIR, "static", "excel-files")
 
 TEST_DIR = os.path.join(os.path.dirname(MAIN_DIR), "test")
 PROFILE_DIR = os.path.join(TEST_DIR, "profiler-results")
-MONITORING_DIR = os.path.join(TEST_DIR, "profiler-results")
+MONITORING_DIR = os.path.join(TEST_DIR, "monitoring_data")
 
 
 def get_initializer():

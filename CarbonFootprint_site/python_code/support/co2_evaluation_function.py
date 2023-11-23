@@ -16,6 +16,10 @@ def evaluate_function(heating_module, function_name):
 def __evaluate_heating(heating_module):
 
     people_count = heating_module.main_class.get_field_value("People Living in the House")
+
+    if people_count == 0:
+        people_count = 1
+
     efficiency_multiplier = heating_module.get_field_value("Efficiency class") * 55
     device_multiplier = heating_module.get_field_value("Heating Device")
     square_meters = heating_module.get_field_value("House area")
@@ -25,6 +29,9 @@ def __evaluate_heating(heating_module):
 def __evaluate_cooling(heating_module):
 
     people_count = heating_module.main_class.get_field_value("People Living in the House")
+
+    if people_count == 0:
+        people_count = 1
 
     power = heating_module.get_field_value('Power')
     activation_time = heating_module.get_field_value('Hot days') * heating_module.get_field_value('Hours per day')
