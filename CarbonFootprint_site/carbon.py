@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file
-from python_code.form_definition_class import MainFormClass
-from python_code.support.constants import EXCEL_DIR
+from .python_code.form_definition_class import MainFormClass
+from .python_code.support.constants import EXCEL_DIR
 import os
 
 app = Flask(__name__)
