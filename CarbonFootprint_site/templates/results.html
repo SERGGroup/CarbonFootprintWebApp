@@ -11,7 +11,7 @@
   <legend class="text-title">MAIN RESULTS</legend>
   <div class="subsection-container">
     <fieldset class="container-sub-subsection">
-        <legend>Total impact</legend>
+      <legend><span class="italic-text">Total impact</span></legend>
         <div class="inside-container">
           <canvas id={{main_class.plotter.id}} class="canvas-class"></canvas>
           <p class="label">
@@ -22,7 +22,7 @@
         </div>
     </fieldset>
     <fieldset class="container-sub-subsection">
-      <legend>You respect the world</legend>
+      <legend><span class="italic-text">You respect the world</span></legend>
       <div><canvas id={{main_class.plotter.comparison_id}} class="canvas-class"></canvas></div>
     </fieldset>
   </div>
@@ -32,7 +32,7 @@
   <div class="subsection-container">
     {% for sub_class in main_class.input_list %}
     <fieldset class="container-sub-subsection">
-      <legend> {{ sub_class.name }} </legend>
+      <legend><span class="italic-text"> {{ sub_class.name }} </span></legend>
       <div class="inside-container">
         <canvas id={{sub_class.plotter.id}} class="canvas-class"></canvas>
         <p class="label">
