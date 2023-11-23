@@ -1,11 +1,17 @@
+from .python_code.support.constants import EXCEL_DIR, PROFILE_DIR, MAIN_DIR
 from flask import Flask, render_template, request, send_file
 from .python_code.form_definition_class import MainFormClass
-from .python_code.support.constants import EXCEL_DIR
+import flask_monitoringdashboard as dashboard
 import os
 
-def create_app():
+def create_app(enable_profiler=False, enable_dashboard=False):
 
     app = Flask(__name__)
+
+    if enable_dashboard:
+
+        dashboard.config.init_from(file=os.path.join(MAIN_DIR, "config.cfg"))
+        dashboard.bind(app)
 
     @app.route('/', methods=['POST', 'GET'])
     def home():
@@ -38,5 +44,21 @@ def create_app():
 
         file_path = os.path.join(EXCEL_DIR, 'references_download.xlsx')
         return send_file(file_path, as_attachment=True)
+
+    if enable_profiler:
+
+        from werkzeug.middleware.profiler import ProfilerMiddleware
+
+        app.debug = True
+        app.config["PROFILER"] = True
+        app.config["PROFILE"] = True
+        app.wsgi_app = ProfilerMiddleware(
+
+            app.wsgi_app,
+            restrictions=[30],
+            profile_dir=PROFILE_DIR,
+            filename_format="{method}-{path}-{time:.0f}-{elapsed:.0f}ms.prof",
+
+        )
 
     return app
