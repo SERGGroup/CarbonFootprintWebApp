@@ -40,6 +40,3 @@ def create_app():
         return send_file(file_path, as_attachment=True)
 
     return app
-
-
-app = create_app()
