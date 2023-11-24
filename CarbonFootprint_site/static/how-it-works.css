@@ -9,15 +9,26 @@
 
 }
 
+.ovr_container {
+
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    align-items: flex-start;
+
+}
+
 .text-container {
 
-  width: 50vw;
-  flex-direction: column;
-  background-size: cover;
-  background-position: center;
-  align-items: center;
-  gap: 25px;
-  padding: 25px;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    text-align: justify;
 
 }
 
@@ -30,16 +41,18 @@
 
 .how-banner .text-std {
 
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: lighter;
 
   }
 
 .how-banner .text-bold {
 
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 400;
 
   }
 
@@ -47,8 +60,9 @@
 
     font-size: 25px;
     max-width: 80%;
-    height: fit-content;
     text-align: center;
-    font-family: Bad Script, fantasy;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: lighter;
+    font-style: italic;
 
   }

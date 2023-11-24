@@ -1,13 +1,13 @@
 .home-banner {
 
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  background-size: cover;
-  background-image: url('/static/images/background.png');
-  background-position: center;
+  flex-direction: row;
   align-items: center;
-  gap: 25px;
-  padding: 25px;
+  align-content: space-around;
+  justify-content: space-around;
+  padding: 50px;
+  gap: 30px;
 
 }
 
@@ -22,35 +22,69 @@
 .home-banner .title-text {
 
     font-size: 3rem;
-    text-align: center;
+    text-align: left;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: normal;
+
 
   }
 
-.home-banner .text-std {
+.home-banner .ovr_container {
 
-    font-size: 20px;
-    text-align: center;
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    align-items: flex-start;
+    gap: 20px;
 
-  }
+}
 
 .home-banner .text-fancy {
 
-    font-size: 25px;
-    max-width: 80%;
+    font-size: 30px;
     height: fit-content;
-    text-align: center;
-    font-family: Bad Script, fantasy;
+    text-align: justify;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: lighter;
 
   }
+
+.home-banner .background-button {
+
+  aspect-ratio: 1 / 1;
+  min-width: max-content;
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 20%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.home-banner .vl {
+
+  border-left: 1px solid #969696;
+  height: 250px;
+  width: 0px;
+
+}
 
 
 .home-text-fancy {
 
-  font-size: 25px;
+  font-size: 30px;
   max-width: 80%;
   height: fit-content;
   text-align: center;
-  font-family: Bad Script, fantasy;
+  font-family: "Titillium Web", sans-serif ;
+  font-weight: lighter;
+  font-style: italic;
   margin-top: var(--dl-space-space-twounits);
   margin-bottom: var(--dl-space-space-twounits);
 
@@ -62,10 +96,20 @@
   transition: 0.3s;
   padding: var(--dl-space-space-unit) var(--dl-space-space-twounits);
   background-color: rgba(255, 255, 255, 0.66);
+  font-family: "Titillium Web", sans-serif;
+  color: #005B8F;
+  border-color: #005B8F;
+  font-weight: 400;
+  font-size: 20px;
 
 }
 .home-button:hover {
-  transform: scale(1.02);
+
+  transform: scale(1.1);
+  color: rgba(0, 91, 143, 1);
+  border-color: rgba(0, 91, 143, 1);
+  background-color: rgba(0, 91, 143, 0.25);
+
 }
 
 /* FORM STYLE DECLARATION */
@@ -120,8 +164,10 @@
 
 .subsection-class .text-explain {
 
-    font-size: 20px;
-    font-family: Bad Script, fantasy;
+    font-size: 25px;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: lighter;
+    font-style: italic;
     max-width: var(--dl-size-size-maxwidth);
 
   }
@@ -255,22 +301,41 @@
 }
 
 
-/* OLD CODE */
+@media(max-width: 800px) {
 
-.home-subtitle-container {
+  .home-banner {
 
-  width: 600px;
-  height: 420px;
-  display: flex;
-  margin-top: var(--dl-space-space-fourunits);
-  align-items: start;
-  background-size: cover;
-  justify-content: center;
-  background-position: center;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    justify-content: space-around;
+    padding: 50px;
+    gap: 30px;
+
+  }
+
+  .home-banner .ovr_container {
+
+      width: 65vw;
+      display: flex;
+      flex-direction: column;
+      background-size: cover;
+      background-position: center;
+      align-items: flex-start;
+      gap: 20px;
+
+  }
+
+
+  .home-banner .vl {
+
+    border-top: 1px solid #969696;
+    height: 0px;
+    width: 250px;
+
+  }
 
 }
 
-.diet-img{background-image: url("/static/images/DIET.png");}
-.transport-img{background-image: url("/static/images/TRANSPORT.png");}
-.home-img{background-image: url("/static/images/HOME.png");}
-.clothes-img{background-image: url("/static/images/CLOTHES.png");}

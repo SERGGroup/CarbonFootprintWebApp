@@ -39,7 +39,9 @@
 
 .footer_text {
 
-  text-align: center;
+  text-align: justify;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
 
 }
 
