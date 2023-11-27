@@ -1,12 +1,16 @@
 :root {
 
-  --dl-size-size-xxlarge: 250px;
-  --dl-size-size-xlarge: 200px;
-  --dl-size-size-large: 150px;
-  --dl-size-size-medium: 100px;
-  --dl-size-size-small: 50px;
-  --dl-size-size-xsmall: 20px;
-  --dl-space-space-unit: 20px;
+  --dl-size-size-xxlarge: 300px;
+  --dl-size-size-xlarge: 240px;
+  --dl-size-size-large: 180px;
+  --dl-size-size-medium: 120px;
+  --dl-size-size-small: 60px;
+  --dl-size-size-xsmall: 30px;
+  --dl-space-space-unit: 30px;
+
+  --input-font-height: 35px;
+  --input-font-size-std: 20px;
+  --input-font-size-small: 16px;
 
   --dl-color-gray-500: #595959;
   --dl-color-gray-700: #999999;

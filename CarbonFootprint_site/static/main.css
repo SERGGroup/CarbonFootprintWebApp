@@ -155,7 +155,7 @@
 
 .subsection-class .text-title {
 
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     margin-left: 5px;
     margin-right: 5px;
@@ -186,7 +186,9 @@
 
 .subsection-class .input_container .property-name {
 
-  font-size: 14px;
+  font-family: "Titillium Web", sans-serif;
+  font-size: var(--input-font-size-std);
+  font-weight: 400;
   width: var(--dl-size-size-medium);
   align-self: center;
   text-align: left;
@@ -194,23 +196,25 @@
 }
 
 .subsection-class .input_container .property-name .small {
-  font-size: 12px;
+  font-size: var(--input-font-size-small);
   font-style: italic;
 }
 
 .subsection-class .input_container .text-input {
 
+  font-size: var(--input-font-size-std);
   width: var(--dl-size-size-large);
   border: 1px solid #000000;
   border-radius: 5px;
-  height: 30px;
+  height: var(--input-font-height);
 
 }
 
 .subsection-class .input_container .select-cls {
 
   width: var(--dl-size-size-large);
-  height: 30px;
+  height: var(--input-font-height);
+  font-size: var(--input-font-size-std);
   border: 1px solid #000000;
   border-radius: 5px;
   align-self: center;
@@ -245,6 +249,7 @@
 .subsection-class .italic-text {
 
   font-style: italic;
+  font-size: 20px;
 
 }
 
