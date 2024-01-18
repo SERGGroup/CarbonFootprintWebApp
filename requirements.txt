@@ -2,5 +2,7 @@ Flask
 Flask-MonitoringDashboard
 numpy
 waitress
-gunicorn
 wtforms
+pyopenssl
+wfastcgi
+requests

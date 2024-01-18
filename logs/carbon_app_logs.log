@@ -1,0 +1,12 @@
+
+C:\inetpub\wwwroot\carbon_app\CarbonFootprintWebApp>Call venv\Scripts\activate.bat 
+
+(venv) C:\inetpub\wwwroot\carbon_app\CarbonFootprintWebApp>Call python start_waitress.py 
+WARNING:waitress.queue:Task queue depth is 1
+WARNING: You should provide a security key.
+Scheduler started
+Terminate batch job (Y/N)? 
+C:\inetpub\wwwroot\carbon_app\CarbonFootprintWebApp>Call venv\Scripts\activate.bat 
+
+(venv) C:\inetpub\wwwroot\carbon_app\CarbonFootprintWebApp>Call python start_waitress.py 
+WARNING:waitress.queue:Task queue depth is 1

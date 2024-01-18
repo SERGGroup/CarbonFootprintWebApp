@@ -1,7 +1,6 @@
 from .python_code.support.constants import EXCEL_DIR, PROFILE_DIR, MONITORING_DIR
 from flask import Flask, render_template, request, send_file
 from .python_code.form_definition_class import MainFormClass
-import flask_monitoringdashboard as dashboard
 import os
 
 
@@ -11,6 +10,7 @@ def create_app(enable_profiler=False, enable_dashboard=False):
 
     if enable_dashboard:
 
+        import flask_monitoringdashboard as dashboard
         dashboard.config.init_from(file=os.path.join(MONITORING_DIR, "config.cfg"))
 
     @app.route('/', methods=['POST', 'GET'])
