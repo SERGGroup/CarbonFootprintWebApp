@@ -1,1 +1,5 @@
 /venv
+/__pycache__
+CarbonFootprint_site/__pycache__
+CarbonFootprint_site/python_code/__pycache__
+CarbonFootprint_site/python_code/support/__pycache__
