@@ -5,6 +5,7 @@ CODE_DIR = os.path.dirname(os.path.dirname(__file__))
 MAIN_DIR = os.path.dirname(CODE_DIR)
 IMAGES_DIR = os.path.join(MAIN_DIR, "static", "images")
 EXCEL_DIR = os.path.join(MAIN_DIR, "static", "excel-files")
+DATABASE_DIR = os.path.join(MAIN_DIR, "static", "databases")
 
 TEST_DIR = os.path.join(os.path.dirname(MAIN_DIR), "test")
 PROFILE_DIR = os.path.join(TEST_DIR, "profiler-results")

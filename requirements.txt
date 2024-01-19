@@ -6,3 +6,5 @@ wtforms
 pyopenssl
 wfastcgi
 requests
+flask_sqlalchemy
+celery

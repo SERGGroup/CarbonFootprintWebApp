@@ -1,4 +1,5 @@
 from .support.widgets import CustomDropdownField, CustomStringField
+from flask_sqlalchemy import SQLAlchemy as sqldb
 from abc import ABC, abstractmethod
 
 class CustomInput(ABC):
@@ -53,6 +54,20 @@ class CustomInput(ABC):
     def get_fields_dict(self):
 
         return {self.get_name: self.field}
+
+    def get_db_model_dict(self, db):
+
+        return {self.get_name: self.db_model(db)}
+
+    @staticmethod
+    def db_model(db):
+
+        return db.Column(db.Float(), default=0.)
+
+    def append_db_entry_to(self, db_model):
+
+        setattr(db_model, self.get_name, self.value)
+        return db_model
 
     @abstractmethod
     def init_from_dict(self, input_dict):
