@@ -2,6 +2,7 @@ from .support.co2_evaluation_function import get_initializer, evaluate_function
 from .support.collection_plotter import CollectionPlotter
 from .input_field_classes import init_input
 from abc import ABC, abstractmethod
+from datetime import datetime
 from wtforms import Form
 
 
@@ -41,6 +42,16 @@ class InputCollection(ABC):
         self.co2_cost = evaluate_function(self, self.evaluation_function)
         self.plotter.update()
 
+    def append_db_entry_to(self, db_model):
+
+        for input_value in self.input_list:
+            db_model = input_value.append_db_entry_to(db_model)
+
+        for direct_input in self.direct_fields:
+            db_model = direct_input.append_db_entry_to(db_model)
+
+        return db_model
+
     def get_fields_dict(self):
 
         return_dict = dict()
@@ -50,6 +61,18 @@ class InputCollection(ABC):
 
         for field in self.direct_fields:
             return_dict.update(field.get_fields_dict())
+
+        return return_dict
+
+    def get_db_model_dict(self, db):
+
+        return_dict = dict()
+
+        for sub_module in self.input_list:
+            return_dict.update(sub_module.get_db_model_dict(db))
+
+        for field in self.direct_fields:
+            return_dict.update(field.get_db_model_dict(db))
 
         return return_dict
 
@@ -138,13 +161,19 @@ class MainFormClass(InputCollection):
 
         return F
 
-    def evaluate_results(self, curr_form):
+    def init_db_class(self, db, bind_key):
 
-        for main_modules in self.input_list:
+        class DBModel(db.Model):
 
-            main_modules.append_data(curr_form)
+            __bind_key__ = bind_key
+            id = db.Column(db.Integer, primary_key=True)
+            date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
-        self.evaluate_co2_cost()
+        db_model_dict = self.get_db_model_dict(db)
+        for key in db_model_dict.keys():
+            setattr(DBModel, key, db_model_dict[key])
+
+        return DBModel
 
     @property
     def labels(self):

@@ -1,10 +1,12 @@
 from .python_code.support.constants import EXCEL_DIR, PROFILE_DIR, MONITORING_DIR
 from flask import Flask, render_template, request, send_file
 from .python_code.form_definition_class import MainFormClass
+from .python_code.db_handler import DatabaseHandler
+import secrets
 import os
 
 
-def create_app(enable_profiler=False, enable_dashboard=False):
+def create_app(enable_profiler=False, enable_dashboard=False, store_replies=False):
 
     app = Flask(__name__)
 
@@ -12,6 +14,12 @@ def create_app(enable_profiler=False, enable_dashboard=False):
 
         import flask_monitoringdashboard as dashboard
         dashboard.config.init_from(file=os.path.join(MONITORING_DIR, "config.cfg"))
+
+    if store_replies:
+
+        db_handler = DatabaseHandler(app)
+
+    app.config["SECRET_KEY"] = secrets.token_urlsafe(16)
 
     @app.route('/', methods=['POST', 'GET'])
     def home():
@@ -21,7 +29,13 @@ def create_app(enable_profiler=False, enable_dashboard=False):
 
         if request.method == 'POST' and curr_form.validate():
 
-            main_class.evaluate_results(curr_form)
+            main_class.append_data(curr_form)
+            main_class.evaluate_co2_cost()
+
+            if store_replies:
+
+                db_handler.append_to_db(main_class)
+
             return render_template('results.html', main_class=main_class)
 
         return render_template('support/form_layout.html', form=curr_form, main_class=main_class)
@@ -41,7 +55,6 @@ def create_app(enable_profiler=False, enable_dashboard=False):
 
     @app.route('/references')
     def download_ref():
-
         file_path = os.path.join(EXCEL_DIR, 'references_download.xlsx')
         return send_file(file_path, as_attachment=True)
 

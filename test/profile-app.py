@@ -1,4 +1,4 @@
-from CarbonFootprint_site.carbon import create_app
+from CarbonFootprint_site.main import create_app
 
 if __name__ == '__main__':
 
