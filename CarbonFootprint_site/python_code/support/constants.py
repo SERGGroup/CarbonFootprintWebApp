@@ -53,7 +53,7 @@ def get_initializer():
                     "time-base": "week"
 
                 },
-                'Pig': {
+                'Pork': {
 
                     "base-multiplier": 7.9,  # kgCO2/kg
                     "placeholder": "[g/week]",
