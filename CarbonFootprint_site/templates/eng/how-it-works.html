@@ -1,0 +1,84 @@
+{%extends "0 - layout.html"%}
+{%block title%}Results{%endblock%}
+{%block content%}
+<link href="static/how-it-works.css" rel="stylesheet" />
+<div class="how-banner">
+  <div class="ovr_container">
+    <div class="text-container">
+      <span class="title-text">
+        How it works
+      </span>
+    </div>
+    <div class="text-container">
+	  <span class="text-fancy">
+		A brief introduction to CarbonApp
+	  </span>
+	  <br>
+      <span class="text-std">
+        CarbonApp is a tool that calculates the <span class="text-bold">emissions of Carbon Dioxide</span>
+        equivalent related to the <span class="text-bold">lifestyle of a single person</span>. To evaluate the impact of a specific
+        person we use data provided by the user about hiss or hers lifestyle. These data are converted into a emission
+        factor using correlations retrieved in the <span class="text-bold">scientific literature</span>. The sources are listed in the Excel file that
+        you can download at the end of the page.
+      </span>
+    </div>
+	<div class="text-container">
+	  <span class="text-std">
+        The tool has been originally developed by <span class="text-bold">Pietro Gradi, Valerio Nardo Marino</span> and <span class="text-bold">Farid Hosen</span> under the supervision of 
+		<span class="text-bold">Alessia Manfredi, Pietro Ungar</span> and <span class="text-bold">Giampaolo Manfrida</span> from the 
+		<a href="https://www.dief.unifi.it/vp-177-serg-group-english-version.html" target=”_blank” style="color:#005B8F;">
+		  <span class="text-bold">SERG Group</span>
+		</a> of the University of Florence in the scope of the sustainable energy course of the master degree of 
+		<a href="https://www.ingegneria.unifi.it/vp-453-lm-mechanical-engineering-for-sustainability.html" target=”_blank” style="color:#005B8F;">
+		  <span class="text-bold">Mechanical Engineering for Sustainability</span>
+		</a>.
+	  </span>
+    </div>
+	<div class="text-container">
+	  <span class="text-std">
+        For <span class="text-bold">further explainations</span> or <span class="text-bold">suggestions</span> you can contact
+		<a href="mailto:alessia.manfredi@unifi.it" style="color:#005B8F;">
+		  <span class="text-bold">Alessia Manfredi</span>
+		</a> or
+		<a href="mailto:pietro.ungar@unifi.it" style="color:#005B8F;">
+		  <span class="text-bold">Pietro Ungar</span>
+		</a>. 
+	  </span>
+    </div>
+    <div class="text-container">
+	  <span class="text-fancy">
+		How to use it
+	  </span>
+	  <br>
+      <span class="text-std">
+        For the <span class="text-bold">Diet</span> section the user have to insert data about a typical week, and what you
+        eat in average quantities. For the <span class="text-bold">Transport</span> section, you have to similarly insert
+        data about which method to move around in a typical week you use. Obviously, the number of kilometers travelled by
+        foot or by bike are not considered as they are associated with negligible emissions. For the
+        <span class="text-bold">House</span> section, the first thing to insert is the number of people that you
+        share the house with, because it allows to distribute the impact of some part, like the impact of house heating or washing machine;
+        the elements that are corrected with the number of family members are indicated into the information box below
+        the input groups. For the <span class="text-bold">Clothes</span> section, you have to insert the number
+        of clothes that you buy each year.
+      </span>
+    </div>
+    <div class="text-container">
+      <span class="text-std">
+        Once you have done with the input collection you can press the  <span class="text-bold">"Calculate"</span> button in order to see your results.
+      </span>
+    </div>
+  </div>
+  <div class="subsection-class">
+  <span class="home-text-fancy">
+    With the following button you can download an Excel file that
+    contains all the reference and data used for this web site
+  </span>
+  <a href="/references">
+    <button class="home-button button">References</button>
+  </a>
+</div>
+</div>
+{%endblock%}
+
+{%block finalremarks%}
+{%endblock%}

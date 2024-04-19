@@ -1,0 +1,65 @@
+{% macro render_field(field, input) %}
+<div class="input_container">
+  <span class="property-name">
+      {{ input.label }}
+      {% if input.has_sub_label %}
+          <span class="small">
+          {{ input.sub_label }}
+          </span>
+      {% endif %}
+  </span>
+  {{ field(placeholder=input.placeholder, **kwargs)|safe }}
+  {% if field.errors %}
+    <ul class=error-tip>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+{% endmacro %}
+
+{% macro render_field_section(form, field_section) %}
+<fieldset class="container-sub-subsection">
+    {% if field_section.has_name %}
+    <legend><span class="italic-text">{{ field_section.name }}</span></legend>
+    {% endif %}
+    {% for input in field_section.input_list %}
+    {{ render_field(form[input.get_name], input) }}
+    {% endfor %}
+    {% if field_section.has_explanation %}
+    <span class="text-info">
+        <span class="small"> Info: {{ field_section.explanation }} </span>
+    </span>
+    {% endif %}
+</fieldset>
+{% endmacro %}
+
+{% macro render_form_section(form, form_section) %}
+<fieldset class="subsection-class">
+    <legend class="text-title">{{ form_section.name }}</legend>
+    {% if form_section.has_explanation %}
+    <span class="text-explain">
+        {{ form_section.explanation }}
+    </span>
+    {% endif %}
+    {% if form_section.has_direct_fields %}
+    <fieldset class="container-direct">
+        {% for input in form_section.direct_fields %}
+        {{ render_field(form[input.get_name], input) }}
+        {% endfor %}
+    </fieldset>
+    {% endif %}
+    <div class="subsection-container">
+        {% for field_section in form_section.input_list %}
+        {{ render_field_section(form, field_section) }}
+        {% endfor %}
+    </div>
+</fieldset>
+{% endmacro %}
+
+{% macro render_form(form, input_list) %}
+{% for form_section in input_list %}
+{{ render_form_section(form, form_section) }}
+{% endfor %}
+{% endmacro %}

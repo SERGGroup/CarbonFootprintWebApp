@@ -1,0 +1,69 @@
+{% macro render_plot_script(plotter) %}
+<script>
+    new Chart(document.getElementById({{ plotter.id | tojson }}), {
+    type: 'doughnut',
+    data: {
+      labels: {{ plotter.labels | tojson }},
+      datasets: [{
+
+        label: 'CO2 Impact',
+        data: {{ plotter.output_list | tojson }},
+
+      }]
+    },
+    });
+</script>
+{%endmacro%}
+
+{% macro render_comparison_plot_script(plotter) %}
+<script>
+
+    new Chart(document.getElementById({{ plotter.comparison_id | tojson }}), {
+
+        type: 'bar',
+        data: {
+
+            labels: {{ plotter.comparison_labels | tojson }},
+            datasets: [
+
+            {% for key in plotter.comparison_value_organized.keys()%}
+                {
+                    label: {{ key | tojson }},
+                    data: {{ plotter.comparison_value_organized[key] | tojson }},
+
+                },
+            {% endfor %}
+
+            ]
+
+        },
+        options: {
+
+            maintainAspectRatio: false,
+            scales: {
+
+                x: {stacked: true},
+                y: {
+
+                    stacked: true,
+                    title: {
+                        display: true,
+                        text: 'Emission [kg CO2/year]'
+                    }
+
+                }
+
+            },
+
+        },
+
+    });
+</script>
+{%endmacro%}
+
+plugins: {
+    title: {
+        display: true,
+        text: 'Chart.js Bar Chart - Stacked'
+    },
+},
