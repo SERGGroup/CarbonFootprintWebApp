@@ -1,5 +1,5 @@
-{%extends "0 - layout.html"%}
-{% from "support/_plot_helper.html" import render_plot_script, render_comparison_plot_script, render_subclass_plot_script%}
+{%extends "Eng/0 - layout.html" %}
+{% from "Eng/support/_plot_helper.html" import render_plot_script, render_comparison_plot_script, render_subclass_plot_script%}
 {%block title%}Results{%endblock%}
 {%block content%}
 <div class="subsection-class-no-border">
@@ -53,7 +53,7 @@ UNCOMMENT THIS TO IMPLEMENT THE EXCEL DOWNLOAD PROCEDURE
   <span class="home-text-fancy">
     An excel file with your data has been created, let's download it
   </span>
-  <a href="/download">
+  <a href="/download_eng">
     <button class="home-button button">Download</button>
   </a>
 </div>

@@ -24,7 +24,7 @@ def create_app(enable_profiler=False, enable_dashboard=False, store_replies=Fals
     @app.route('/', methods=['POST', 'GET'])
     def home():
 
-        main_class = MainFormClass()
+        main_class = MainFormClass(is_italian=True)
         curr_form = main_class.form_class(request.form)
 
         if request.method == 'POST' and curr_form.validate():
@@ -36,26 +36,62 @@ def create_app(enable_profiler=False, enable_dashboard=False, store_replies=Fals
 
                 db_handler.append_to_db(main_class)
 
-            return render_template('results.html', main_class=main_class)
+            return render_template('Ita/results.html', main_class=main_class)
 
-        return render_template('support/form_layout.html', form=curr_form, main_class=main_class)
+        return render_template('Ita/Supporto/form_layout.html', form=curr_form, main_class=main_class)
+
+    @app.route('/eng', methods=['POST', 'GET'])
+    def home_eng():
+
+        main_class = MainFormClass(is_italian=False)
+        curr_form = main_class.form_class(request.form)
+
+        if request.method == 'POST' and curr_form.validate():
+
+            main_class.append_data(curr_form)
+            main_class.evaluate_co2_cost()
+
+            if store_replies:
+                db_handler.append_to_db(main_class)
+
+            return render_template('Eng/results.html', main_class=main_class)
+
+        return render_template('Eng/Support/form_layout.html', form=curr_form, main_class=main_class)
+
+    @app.route('/explanation')
+    def explanation():
+        return render_template('Ita/how-it-works.html')
+
+    @app.route('/explanation_eng')
+    def explanation_eng():
+        return render_template('Eng/how-it-works.html')
 
     @app.route('/download')
     def download():
 
         # Percorso del file Excel da scaricare
-        file_path = 'results_download.xlsx'
+        file_path = ('results_download_ita.xlsx')
 
         # Invia il file Excel al client come allegato
         return send_file(file_path, as_attachment=True)
 
-    @app.route('/explanation')
-    def explanation():
-        return render_template('how-it-works.html')
+    @app.route('/download_eng')
+    def download_eng():
+
+        # Percorso del file Excel da scaricare
+        file_path = ('results_download_eng.xlsx')
+
+        # Invia il file Excel al client come allegato
+        return send_file(file_path, as_attachment=True)
 
     @app.route('/references')
     def download_ref():
-        file_path = os.path.join(EXCEL_DIR, 'references_download.xlsx')
+        file_path = os.path.join(EXCEL_DIR, 'References_ita.xlsx')
+        return send_file(file_path, as_attachment=True)
+
+    @app.route('/references_eng')
+    def download_ref_eng():
+        file_path = os.path.join(EXCEL_DIR, 'references_eng.xlsx')
         return send_file(file_path, as_attachment=True)
 
     if enable_profiler:

@@ -1,11 +1,11 @@
-{%extends "main.html" %}
-{% from "support/_form_helpers.html" import render_form %}
+{%extends "Eng/main.html" %}
+{% from "Eng/support/_form_helpers.html" import render_form %}
 {%block form%}
-<form class="home-form" method="POST" action="/">
+<form class="home-form" method="POST" action="/eng">
   {{ render_form(form, main_class.input_list) }}
   <div class="subsection-class">
     <span class="home-text-fancy">
-      Once you have filled your data hit the bottom below!!
+      Once you have filled you data hit the bottom below!!
     </span>
     <button class="home-button button">Calculate</button>
   </div>

@@ -2,6 +2,7 @@ from .support.widgets import CustomDropdownField, CustomStringField
 from flask_sqlalchemy import SQLAlchemy as sqldb
 from abc import ABC, abstractmethod
 
+
 class CustomInput(ABC):
 
     def __init__(self, name, input_dict, collection_class):

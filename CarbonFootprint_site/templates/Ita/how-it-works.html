@@ -1,0 +1,81 @@
+{%extends "Ita/0 - layout.html" %}
+{%block title%}Results{%endblock%}
+{%block content%}
+<link href="static/how-it-works.css" rel="stylesheet" />
+<div class="how-banner">
+  <div class="ovr_container">
+    <div class="text-container">
+      <span class="title-text">
+        Come funziona ?
+      </span>
+    </div>
+    <div class="text-container">
+	  <span class="text-fancy">
+	  </span>
+	  <br>
+      <span class="text-std">
+        Carbonapp è un' applicazione che consente di calcolare <span class="text-bold"> le emissioni di anidride carbonica equivalente </span>
+          <a href="https://www.mase.gov.it/pagina/glossario#:~:text=Tonnellata%20di%20CO2equivalente"  target=”_blank” rel="noopener" style="color:#005B8F;">
+		  <span class="text-bold">(definizione)</span>
+          </a> basandosi sullo<span class="text-bold"> stile di vita di ciascun individuo </span>.
+          Per valutare l'impatto causato da una singola persona si fa riferimento ai dati forniti direttamente dall'utente. Questi dati vengono poi tradotti in fattore emissivo grazie a delle formule reperibili nella <span class="text-bold"> letteratura scientifica. </span>
+          Le fonti sono riportate in un file excel che è possibile scaricare in calce alla pagina.
+      </span>
+    </div>
+	<div class="text-container">
+	  <span class="text-std">
+        Quest'applicazione è stata sviluppata su iniziativa di <span class="text-bold">Pietro Gradi, Valerio Nardo Marino</span> e <span class="text-bold">Farid Hosen,</span> supervisionati da
+		<span class="text-bold">Alessia Manfredi, Pietro Ungar</span> e <span class="text-bold">Giampaolo Manfrida</span> (membri del
+		<a href="https://www.dief.unifi.it/vp-177-serg-group-english-version.html" target=”_blank” style="color:#005B8F;">
+		  <span class="text-bold">SERG Group</span>
+		</a> dell'università di Firenze) nell'ambito del corso di energia sostenibile per facoltà di
+		<a href="https://www.ingegneria.unifi.it/vp-453-lm-mechanical-engineering-for-sustainability.html" target=”_blank” style="color:#005B8F;">
+		  <span class="text-bold">Mechanical Engineering for Sustainability</span>
+		</a>.
+	  </span>
+    </div>
+	<div class="text-container">
+	  <span class="text-std">
+        Qualora siano necessarie <span class="text-bold"> ulteriori informazioni</span> o <span class="text-bold">spiegazioni</span> è possibile contattare
+		<a href="mailto:alessia.manfredi@unifi.it" style="color:#005B8F;">
+		  <span class="text-bold">Alessia Manfredi</span>
+		</a> o
+		<a href="mailto:pietro.ungar@unifi.it" style="color:#005B8F;">
+		  <span class="text-bold">Pietro Ungar</span>
+		</a>. 
+	  </span>
+    </div>
+    <div class="text-container">
+	  <span class="text-fancy">
+		Come si usa?
+	  </span>
+	  <br>
+      <span class="text-std">
+        Nella sezione <span class="text-bold">Dieta</span> l'utente deve inserire dei dati riguardanti gli usi alimentari di una settimana tipo indicando in media le quantità assunte.
+          Similmente, alla voce  <span class="text-bold"> trasporti </span>, è necessario inserire
+          delle informazioni concernenti gli spostamenti settimanali, esclusi i chilometri percorsi a piedi o in bicicletta che non vengono presi in considerazione.
+          Allo stesso modo nella sezione <span class="text-bold">Casa</span>, La prima informazione da inserire è il numero di persone con cui si abita, in modo da le emissioni per ogni singolo individuo,
+          questo riguarda emissioni collettive come quelle legate al riscaldamento oppure all'uso della lavatrice.
+          Infine, nella sezione <span class="text-bold">Abbigliamento</span>, si deve indicare il numero di capi d'abbigliamento che si acquista ogni anno.
+      </span>
+    </div>
+    <div class="text-container">
+      <span class="text-std">
+        Una volta finito di compilare tutti i campi è possibile visualizzare i risultati cliccando su  <span class="text-bold">"Calcola"</span> .
+      </span>
+    </div>
+  </div>
+  <div class="subsection-class">
+  <span class="home-text-fancy">
+    Cliccando sul seguente link è possibile scaricare il file excel contenente le fonti ed i dati utilizzati per
+      la realizzazione di questo sito.
+  </span>
+  <a href="/references">
+    <button class="home-button button"> Banca dati </button>
+  </a>
+</div>
+</div>
+{%endblock%}
+
+{%block finalremarks%}
+{%endblock%}

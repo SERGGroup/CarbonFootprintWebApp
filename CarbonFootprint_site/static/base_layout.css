@@ -12,6 +12,7 @@
   max-width: var(--dl-size-size-maxwidth);
   align-items: center;
   justify-content: space-between;
+
 }
 .header-logo-image {
     max-width: 100%;
@@ -21,6 +22,10 @@
     padding-left: var(--dl-space-space-threeunits);
     padding-right: var(--dl-space-space-threeunits);
     padding-bottom: var(--dl-space-space-twounits);
+
+}
+.Language selector {
+
 
 }
 

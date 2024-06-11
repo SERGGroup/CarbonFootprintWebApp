@@ -1,4 +1,4 @@
-from .support.co2_evaluation_function import get_initializer, evaluate_function
+from .support.co2_evaluation_function import get_initializer, evaluate_function, initializer_ita, initializer_eng
 from .support.collection_plotter import CollectionPlotter
 from .input_field_classes import init_input
 from abc import ABC, abstractmethod
@@ -8,8 +8,9 @@ from wtforms import Form
 
 class InputCollection(ABC):
 
-    def __init__(self, name, init_dict, main_class):
+    def __init__(self, name, init_dict, main_class, is_italian):
 
+        self.is_italian = is_italian
         self.co2_cost = 0.
 
         self.name = name
@@ -20,7 +21,7 @@ class InputCollection(ABC):
         self.explanation = init_dict.pop("Explanation", None)
         self.evaluation_function = init_dict.pop("Evaluation-Function", None)
         self.init_general_information(init_dict.pop("General Information", None))
-        self.init_from_dict(init_dict)
+        self.init_from_dict(init_dict, is_italian=is_italian)
         self.plotter = CollectionPlotter(self)
 
     def init_general_information(self, general_information):
@@ -40,7 +41,7 @@ class InputCollection(ABC):
     def evaluate_co2_cost(self):
 
         self.co2_cost = evaluate_function(self, self.evaluation_function)
-        self.plotter.update()
+        self.plotter.update(is_italian=self.is_italian)
 
     def append_db_entry_to(self, db_model):
 
@@ -104,13 +105,13 @@ class InputCollection(ABC):
         return len(self.direct_fields) > 0
 
     @abstractmethod
-    def init_from_dict(self, init_dict):
+    def init_from_dict(self, init_dict, is_italian):
 
         pass
 
 class FormSubModules(InputCollection):
 
-    def init_from_dict(self, init_dict):
+    def init_from_dict(self, init_dict, is_italian):
 
         if self.name.lower() == "none":
             self.name = None
@@ -126,27 +127,27 @@ class FormSubModules(InputCollection):
 
 class FormMainModules(InputCollection):
 
-    def init_from_dict(self, init_dict):
+    def init_from_dict(self, init_dict, is_italian):
 
         for sub_key in init_dict.keys():
 
             if type(init_dict[sub_key]) == dict:
 
-                self.input_list.append(FormSubModules(sub_key, init_dict[sub_key], self))
+                self.input_list.append(FormSubModules(sub_key, init_dict[sub_key], self, is_italian=is_italian))
 
 class MainFormClass(InputCollection):
 
-    def init_from_dict(self, init_dict):
+    def init_from_dict(self, init_dict, is_italian):
 
         for base_key in init_dict.keys():
-            self.input_list.append(FormMainModules(base_key, init_dict[base_key], self))
+            self.input_list.append(FormMainModules(base_key, init_dict[base_key], self, is_italian=is_italian))
 
-    def __init__(self):
+    def __init__(self, is_italian=True):
 
-        init_dict = get_initializer()
+        init_dict = get_initializer(return_italian=is_italian)
         self.return_dict = dict()
 
-        super().__init__("Main", init_dict, None)
+        super().__init__("Main", init_dict, None, is_italian=is_italian)
 
         self.form_class = self.__init_form_class()
 

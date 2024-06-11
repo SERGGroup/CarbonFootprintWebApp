@@ -16,13 +16,14 @@ class CollectionPlotter:
 
         self.labels = list()
         self.output_list = list()
+        self.overall_yearly_ton_impact = 0
+
         self.comparison_dict = WORLD_IMPACT
         self.comparison_labels = list()
         self.comparison_values = list()
         self.comparison_value_organized = list()
-        self.overall_yearly_ton_impact = 0
 
-    def update(self):
+    def update(self, is_italian=True):
 
         self.labels = list()
         self.output_list = list()
@@ -40,9 +41,24 @@ class CollectionPlotter:
             self.labels.append(main_modules.name.title())
             self.output_list.append(main_modules.co2_cost * 365)
 
+        if is_italian:
+
+            you_srt = "Tu"
+            total_str = "Totale"
+
+            self.comparison_dict.pop("You", None)
+
+
+        else:
+
+            you_srt = "You"
+            total_str = "Total"
+
+            self.comparison_dict.pop("Tu", None)
+
         self.comparison_dict.update({
 
-            "You": self.collection.co2_cost * 365
+            you_srt: self.collection.co2_cost * 365
 
         })
 
@@ -50,11 +66,11 @@ class CollectionPlotter:
         self.comparison_labels = list(self.comparison_dict.keys())
         self.comparison_values = list(self.comparison_dict.values())
 
-        you_position = self.comparison_labels.index("You")
+        you_position = self.comparison_labels.index(you_srt)
         new_list = deepcopy(self.comparison_values)
         new_list[you_position] = 0
 
-        self.comparison_value_organized = {'Total': new_list}
+        self.comparison_value_organized = {total_str: new_list}
         for i in range(len(self.output_list)):
 
             new_list = np.zeros(len(self.comparison_values))
