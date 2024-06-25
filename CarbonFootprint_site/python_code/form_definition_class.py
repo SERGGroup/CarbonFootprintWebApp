@@ -109,6 +109,7 @@ class InputCollection(ABC):
 
         pass
 
+
 class FormSubModules(InputCollection):
 
     def init_from_dict(self, init_dict, is_italian):
@@ -125,6 +126,7 @@ class FormSubModules(InputCollection):
 
         return self.name is not None
 
+
 class FormMainModules(InputCollection):
 
     def init_from_dict(self, init_dict, is_italian):
@@ -134,6 +136,7 @@ class FormMainModules(InputCollection):
             if type(init_dict[sub_key]) == dict:
 
                 self.input_list.append(FormSubModules(sub_key, init_dict[sub_key], self, is_italian=is_italian))
+
 
 class MainFormClass(InputCollection):
 
